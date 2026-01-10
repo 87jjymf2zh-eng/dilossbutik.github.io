@@ -2,44 +2,46 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>DilossButik | Luxury Women Wear</title>
+    <title>DilossButik | Kadın Giyim</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Lüks Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: #fdf8f6;
-            color: #2e2e2e;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdf7f4;
+            color: #333;
         }
 
+        /* HEADER */
         header {
-            background: linear-gradient(180deg, #f3d6d9, #f9ecec);
-            padding: 70px 20px;
+            background: linear-gradient(180deg, #f2d7d9, #fdf7f4);
+            padding: 60px 20px 50px;
             text-align: center;
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 44px;
+            font-size: 42px;
+            margin: 10px 0 5px;
             letter-spacing: 1px;
-            margin: 10px 0;
         }
 
         header p {
-            font-size: 18px;
-            font-weight: 300;
-            letter-spacing: 0.5px;
+            font-size: 17px;
+            color: #555;
         }
 
+        /* NAV */
         nav {
-            background-color: rgba(255,255,255,0.95);
-            backdrop-filter: blur(6px);
+            background-color: #fff;
             padding: 14px;
             text-align: center;
             position: sticky;
@@ -49,94 +51,119 @@
         }
 
         nav a {
-            margin: 0 18px;
+            margin: 0 15px;
             text-decoration: none;
-            color: #2e2e2e;
+            color: #333;
             font-weight: 500;
-            letter-spacing: 1px;
+            font-size: 15px;
         }
 
         nav a:hover {
-            color: #c9a24d;
+            color: #c48b91;
         }
 
         section {
-            padding: 70px 20px;
+            padding: 50px 20px;
             max-width: 1100px;
             margin: auto;
         }
 
         section h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 34px;
-            margin-bottom: 40px;
+            font-size: 32px;
             text-align: center;
+            margin-bottom: 35px;
         }
 
+        /* PRODUCTS */
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
+            gap: 25px;
         }
 
         .product {
-            background: rgba(255,255,255,0.85);
-            border-radius: 18px;
-            padding: 22px;
+            background: #fff;
+            padding: 18px;
+            border-radius: 16px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
         }
 
         .product:hover {
             transform: translateY(-8px);
-            box-shadow: 0 18px 35px rgba(0,0,0,0.15);
         }
 
         .product img {
             width: 100%;
-            border-radius: 14px;
-            margin-bottom: 15px;
+            border-radius: 12px;
         }
 
         .product h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 400;
+            margin-top: 15px;
+            font-weight: 500;
         }
 
+        /* BUTTON */
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 14px 34px;
-            background: linear-gradient(135deg, #c9a24d, #e7c873);
+            margin-top: 15px;
+            padding: 12px 28px;
+            background-color: #c48b91;
             color: #fff;
             text-decoration: none;
             border-radius: 40px;
-            font-weight: 500;
-            letter-spacing: 1px;
-        }
-
-        footer {
-            background-color: #f3d6d9;
-            text-align: center;
-            padding: 30px;
             font-size: 14px;
-            letter-spacing: 1px;
+            font-weight: 500;
         }
 
+        /* FOOTER */
+        footer {
+            background-color: #f2d7d9;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        /* WHATSAPP */
         .whatsapp {
             position: fixed;
-            bottom: 22px;
-            right: 22px;
+            bottom: 18px;
+            right: 18px;
             background: #25D366;
             color: white;
-            padding: 15px 20px;
+            padding: 14px 18px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
             z-index: 200;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 34px;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 14px;
+            }
+
+            section h2 {
+                font-size: 26px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp {
+                padding: 12px 16px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -144,9 +171,9 @@
 <body>
 
 <header>
-    <img src="logo.jpg" alt="Diloss Butik Logo" style="max-width:150px; display:block; margin:0 auto 20px;">
+    <img src="logo.jpg" alt="Diloss Butik Logo" style="max-width:140px; display:block; margin:0 auto 18px;">
     <h1>DilossButik</h1>
-    <p>✨ kendi hikayenizi zarafetle yazın</p>
+    <p>✨ kendi hikayenizi yazmaya hazır mısınız?</p>
 </header>
 
 <nav>
@@ -183,25 +210,22 @@
 
 <section id="hakkimizda">
     <h2>Hakkımızda</h2>
-    <p style="text-align:center; max-width:700px; margin:auto; font-weight:300;">
-        DilossButik; zarafeti, feminen dokunuşları ve modern şıklığı
-        bir araya getirerek kadınların kendini özel hissetmesini amaçlar.
-        Her parça özenle seçilir, her detay bir hikâye anlatır.
+    <p style="text-align:center; max-width:700px; margin:auto;">
+        DilossButik, kadınların tarzını ve özgünlüğünü yansıtabilmesi için
+        özenle seçilmiş parçalar sunar. Kalite, şıklık ve ulaşılabilir
+        modayı bir araya getiriyoruz.
     </p>
 </section>
 
-<section id="iletisim">
+<section id="iletisim" style="text-align:center;">
     <h2>İletişim</h2>
-    <p style="text-align:center;">Bizimle özel alışveriş deneyimi için iletişime geçin</p>
-    <div style="text-align:center;">
-        <a class="btn" href="https://wa.me/905077466171" target="_blank">WhatsApp</a>
-        <br><br>
-        <a class="btn" href="https://instagram.com/_dilossbutikk_" target="_blank">Instagram</a>
-    </div>
+    <a class="btn" href="https://wa.me/905077466171" target="_blank">WhatsApp’tan Yaz</a>
+    <br><br>
+    <a class="btn" href="https://instagram.com/_dilossbutikk_" target="_blank">Instagram</a>
 </section>
 
 <footer>
-    © 2026 DilossButik — Luxury Women Wear
+    © 2026 DilossButik
 </footer>
 
 <a href="https://wa.me/905077466171" class="whatsapp" target="_blank">WhatsApp</a>
