@@ -2,104 +2,82 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Ürün Detayı | DilossButik</title>
+<title>Ürün Detayı | Diloss Butik</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
-    margin:0;
-    font-family: 'Arial', sans-serif;
-    background:#fdf8f6;
-    color:#333;
+  margin:0;
+  font-family:Arial;
+  background:#fdf7f4;
 }
 
-/* HEADER */
 header{
-    background:linear-gradient(180deg,#f3d9dc,#fdf8f6);
-    padding:15px 20px;
-    display:flex;
-    align-items:center;
-    gap:10px;
+  padding:15px;
 }
+
 header a{
-    text-decoration:none;
-    color:#9a6b6b;
-    font-weight:bold;
+  text-decoration:none;
+  color:#c89fa3;
+  font-weight:bold;
 }
 
-/* PRODUCT */
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:20px;
+section{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
 }
 
-.product-img{
-    width:100%;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+img{
+  width:100%;
+  border-radius:18px;
 }
 
 h1{
-    font-size:30px;
-    margin:20px 0 5px;
+  font-size:28px;
 }
 
 .price{
-    font-size:26px;
-    color:#c48a92;
-    font-weight:bold;
-    margin-bottom:10px;
+  font-size:24px;
+  color:#c89fa3;
+  font-weight:bold;
 }
 
-.short-desc{
-    font-size:16px;
-    color:#555;
+.old{
+  text-decoration:line-through;
+  color:#aaa;
+  margin-left:8px;
 }
 
-/* INFO BOX */
-.info-box{
-    background:#fff;
-    border-radius:15px;
-    padding:20px;
-    margin:25px 0;
-    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+.desc{
+  margin-top:15px;
+  color:#555;
+  line-height:1.6;
 }
 
-.info-box h3{
-    margin-top:0;
-    color:#9a6b6b;
+.options{
+  margin-top:20px;
 }
 
-/* LIST */
-ul{
-    padding-left:20px;
-}
-li{
-    margin-bottom:8px;
-}
-
-/* BUTTON */
-.whatsapp{
-    display:block;
-    background:#25d366;
-    color:#fff;
-    text-align:center;
-    padding:18px;
-    border-radius:15px;
-    text-decoration:none;
-    font-size:18px;
-    font-weight:bold;
-    margin:30px 0;
-    box-shadow:0 8px 20px rgba(37,211,102,0.4);
+.options span{
+  display:inline-block;
+  padding:8px 14px;
+  border:1px solid #ddd;
+  border-radius:20px;
+  margin:5px;
+  font-size:14px;
 }
 
-/* FOOTER NOTE */
-.note{
-    font-size:14px;
-    color:#777;
-    text-align:center;
-    margin-bottom:30px;
+.btn{
+  display:block;
+  margin-top:30px;
+  background:linear-gradient(135deg,#4cd964,#2ecc71);
+  color:#fff;
+  text-align:center;
+  padding:16px;
+  border-radius:40px;
+  text-decoration:none;
+  font-size:18px;
 }
 </style>
 </head>
@@ -107,101 +85,72 @@ li{
 <body>
 
 <header>
-    <a href="index.html">← Ana Sayfa</a>
+<a href="index.html">← Ana Sayfa</a>
 </header>
 
-<div class="container">
-
-<img id="foto" class="product-img">
+<section>
+<img id="foto">
 
 <h1 id="ad"></h1>
+
 <div class="price" id="fiyat"></div>
-<p class="short-desc" id="kisa"></p>
 
-<div class="info-box">
-    <h3>Ürün Açıklaması</h3>
-    <p id="aciklama"></p>
+<p class="desc" id="aciklama"></p>
+
+<div class="options">
+<strong>Beden:</strong><br>
+<span>S</span><span>M</span><span>L</span>
 </div>
 
-<div class="info-box">
-    <h3>Ürün Özellikleri</h3>
-    <ul>
-        <li><strong>Kumaş:</strong> %100 kaliteli dokuma</li>
-        <li><strong>Kalıp:</strong> Rahat kesim</li>
-        <li><strong>Bedenler:</strong> S – M – L</li>
-        <li><strong>Mevsim:</strong> 4 Mevsim</li>
-    </ul>
+<div class="options">
+<strong>Renk:</strong><br>
+<span>Siyah</span><span>Bej</span><span>Kahve</span>
 </div>
 
-<div class="info-box">
-    <h3>Kargo & İade</h3>
-    <ul>
-        <li>24 saat içinde kargoya verilir</li>
-        <li>Türkiye geneli gönderim</li>
-        <li>Değişim mevcuttur</li>
-    </ul>
-</div>
-
-<a class="whatsapp" id="wp" target="_blank">
-    WhatsApp’tan Sipariş Ver
+<a class="btn" href="https://wa.me/905077466171" target="_blank">
+WhatsApp’tan Sipariş Ver
 </a>
-
-<p class="note">
-✨ DilossButik – kendi hikayeni yaz ✨
-</p>
-
-</div>
+</section>
 
 <script>
 const urunler={
-el1:{
-ad:"Şık Günlük Elbise",
-foto:"elise2.jpg",
-fiyat:"1.250₺",
-kisa:"Rahat ve şık kombinler için ideal.",
-aciklama:"Günlük kullanımda hem rahatlığı hem de zarafeti bir arada sunan bu elbise, özel dokusu sayesinde gün boyu konfor sağlar. Şık tasarımıyla ister gündüz ister akşam kombinlerinde rahatlıkla tercih edilebilir."
-},
-el2:{
-ad:"Siyah Uzun Elbise",
-foto:"elise1.jpg",
-fiyat:"1.450₺",
-kisa:"Zamansız şıklık.",
-aciklama:"Minimal ve asil duruşuyla öne çıkan bu model, özel günler ve davetler için mükemmel bir tercihtir."
-},
-etek1:{
-ad:"Zarif Etek",
-foto:"etek1.jpg",
-fiyat:"950₺",
-kisa:"Günlük ve klasik kombinler için.",
-aciklama:"Hafif dokusu ve modern kesimiyle her stile uyum sağlar."
-},
-kazak1:{
-ad:"Yumuşak Kazak",
-foto:"kazak1.jpg",
-fiyat:"850₺",
-kisa:"Soğuk günlerin favorisi.",
-aciklama:"Yumuşacık dokusu sayesinde sıcak tutar ve şıklığı tamamlar."
-},
-trenckot1:{
-ad:"Şık Trençkot",
-foto:"trenckot1.jpg",
-fiyat:"2.200₺",
-kisa:"Klasik ve modern çizgi.",
-aciklama:"Mevsim geçişlerinde kurtarıcı parça."
-}
+ elbise1:{
+  ad:"Şık Günlük Elbise",
+  foto:"elbise1.jpg",
+  fiyat:"1.250₺  <span class='old'>1.450₺</span>",
+  aciklama:"Rahat kesim, gün boyu şıklık sağlayan özel tasarım elbise."
+ },
+ elbise2:{
+  ad:"Siyah Uzun Elbise",
+  foto:"elbise2.jpg",
+  fiyat:"1.450₺",
+  aciklama:"Zarif ve güçlü duruşu olan klasik siyah elbise."
+ },
+ etek1:{
+  ad:"Zarif Etek",
+  foto:"etek1.jpg",
+  fiyat:"750₺",
+  aciklama:"Yumuşak dokulu, günlük ve şık kombinler için ideal."
+ },
+ kazak1:{
+  ad:"Yumuşak Kazak",
+  foto:"kazak1.jpg",
+  fiyat:"890₺",
+  aciklama:"Soğuk günlerde sıcak ve zarif."
+ },
+ trenckot1:{
+  ad:"Şık Trençkot",
+  foto:"trenckot1.jpg",
+  fiyat:"2.350₺",
+  aciklama:"Modern kesim, lüks trençkot."
+ }
 };
 
-const p=new URLSearchParams(location.search).get("u");
-const u=urunler[p];
-
-document.getElementById("foto").src=u.foto;
-document.getElementById("ad").innerText=u.ad;
-document.getElementById("fiyat").innerText=u.fiyat;
-document.getElementById("kisa").innerText=u.kisa;
-document.getElementById("aciklama").innerText=u.aciklama;
-
-document.getElementById("wp").href=
-`https://wa.me/905077466171?text=${encodeURIComponent(u.ad+" sipariş vermek istiyorum")}`;
+const p=new URLSearchParams(location.search).get("urun");
+document.getElementById("ad").innerHTML=urunler[p].ad;
+document.getElementById("foto").src=urunler[p].foto;
+document.getElementById("fiyat").innerHTML=urunler[p].fiyat;
+document.getElementById("aciklama").innerHTML=urunler[p].aciklama;
 </script>
 
 </body>
