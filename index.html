@@ -4,80 +4,126 @@
     <meta charset="UTF-8">
     <title>DilossButik | Kadın Giyim</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #fdf7f4;
             color: #333;
         }
+
         header {
             background-color: #f2d7d9;
             padding: 40px 20px;
             text-align: center;
         }
+
         header h1 {
             margin: 0;
             font-size: 36px;
         }
+
         header p {
             font-size: 18px;
             margin-top: 10px;
         }
+
         nav {
             background-color: #fff;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
+
         nav a {
             margin: 0 15px;
             text-decoration: none;
             color: #333;
             font-weight: bold;
         }
+
+        nav a:hover {
+            color: #f2a1a8;
+        }
+
         section {
             padding: 40px 20px;
             max-width: 1000px;
             margin: auto;
         }
+
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
         }
+
         .product {
             background: #fff;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
         }
+
+        .product:hover {
+            transform: translateY(-6px);
+        }
+
         .product img {
             width: 100%;
             border-radius: 10px;
         }
+
         .btn {
             display: inline-block;
             margin-top: 15px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: #f2a1a8;
             color: #fff;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 30px;
+            font-weight: bold;
         }
+
         footer {
             background-color: #f2d7d9;
             text-align: center;
             padding: 20px;
             margin-top: 40px;
         }
+
+        /* WhatsApp Sabit Buton */
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 14px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            z-index: 200;
+        }
     </style>
 </head>
+
 <body>
 
 <header>
-  <img src="logo.jpg" alt="Diloss Butik Logo" style="max-width:150px; display:block; margin:0 auto 15px;">
-  <h1>DilossButik</h1>
-  <p>✨ kendi hikayenizi yazmaya hazır mısınız?</p>
+    <img src="logo.jpg" alt="Diloss Butik Logo" style="max-width:150px; display:block; margin:0 auto 15px;">
+    <h1>DilossButik</h1>
+    <p>✨ kendi hikayenizi yazmaya hazır mısınız?</p>
 </header>
 
 <nav>
@@ -124,6 +170,7 @@
 <section id="iletisim">
     <h2>İletişim</h2>
     <p>Bizimle hemen iletişime geç:</p>
+
     <a class="btn" href="https://wa.me/905077466171" target="_blank">
         WhatsApp’tan Yaz
     </a>
@@ -136,6 +183,11 @@
 <footer>
     © 2026 DilossButik
 </footer>
+
+<!-- Sabit WhatsApp -->
+<a href="https://wa.me/905077466171" class="whatsapp" target="_blank">
+    WhatsApp
+</a>
 
 </body>
 </html>
