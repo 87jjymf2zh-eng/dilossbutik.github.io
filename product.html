@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Ürün Detayı | DilossButik</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:#fdf7f4;
+}
+
+header{
+padding:20px;
+background:#fff;
+box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+
+section{
+max-width:1000px;
+margin:auto;
+padding:30px 20px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+img{
+width:100%;
+border-radius:18px;
+}
+
+h1{
+font-family:'Playfair Display',serif;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 26px;
+background:#25D366;
+color:#fff;
+border-radius:40px;
+text-decoration:none;
+font-weight:bold;
+}
+
+@media(max-width:768px){
+section{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<a href="index.html">← Ana Sayfa</a>
+</header>
+
+<section>
+<img id="foto">
+<div>
+<h1 id="ad"></h1>
+<p id="aciklama"></p>
+
+<a class="btn" href="https://wa.me/905077466171" target="_blank">
+WhatsApp’tan Sipariş Ver
+</a>
+</div>
+</section>
+
+<script>
+const urunler={
+elbise1:{ad:"Siyah Uzun Elbise",foto:"elbise1.jpg",aciklama:"Özel günler için zarif tasarım."},
+elbise2:{ad:"Şık Günlük Elbise",foto:"elbise2.jpg",aciklama:"Rahat ve şık kombin."},
+etek1:{ad:"Zarif Etek",foto:"etek1.jpg",aciklama:"Modern ve feminen."},
+kazak1:{ad:"Yumuşak Kazak",foto:"kazak1.jpg",aciklama:"Soğuk günler için ideal."},
+trenckot1:{ad:"Şık Trençkot",foto:"trenckot1.jpg",aciklama:"Zamansız stil."}
+};
+
+const p=new URLSearchParams(location.search).get("urun");
+document.getElementById("ad").innerText=urunler[p].ad;
+document.getElementById("foto").src=urunler[p].foto;
+document.getElementById("aciklama").innerText=urunler[p].aciklama;
+</script>
+
+</body>
+</html>
