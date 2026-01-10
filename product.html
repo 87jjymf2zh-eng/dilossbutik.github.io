@@ -2,51 +2,104 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<title>Ürün Detayı | DilossButik</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ürün Detayı</title>
 
 <style>
 body{
     margin:0;
-    font-family: 'Helvetica Neue', sans-serif;
-    background:#faf7f5;
+    font-family: 'Arial', sans-serif;
+    background:#fdf8f6;
+    color:#333;
 }
+
+/* HEADER */
 header{
-    padding:15px;
+    background:linear-gradient(180deg,#f3d9dc,#fdf8f6);
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 header a{
     text-decoration:none;
-    color:#c89b9b;
+    color:#9a6b6b;
     font-weight:bold;
 }
-main{
+
+/* PRODUCT */
+.container{
+    max-width:900px;
+    margin:auto;
     padding:20px;
 }
-img{
+
+.product-img{
     width:100%;
     border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
+
 h1{
-    margin-top:15px;
+    font-size:30px;
+    margin:20px 0 5px;
 }
+
 .price{
-    font-size:22px;
-    color:#c89b9b;
+    font-size:26px;
+    color:#c48a92;
     font-weight:bold;
+    margin-bottom:10px;
 }
-.desc{
-    color:#666;
-    margin:10px 0 20px;
+
+.short-desc{
+    font-size:16px;
+    color:#555;
 }
-.btn{
+
+/* INFO BOX */
+.info-box{
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    margin:25px 0;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.info-box h3{
+    margin-top:0;
+    color:#9a6b6b;
+}
+
+/* LIST */
+ul{
+    padding-left:20px;
+}
+li{
+    margin-bottom:8px;
+}
+
+/* BUTTON */
+.whatsapp{
     display:block;
-    text-align:center;
-    background:#25D366;
+    background:#25d366;
     color:#fff;
-    padding:15px;
-    border-radius:14px;
-    font-size:18px;
+    text-align:center;
+    padding:18px;
+    border-radius:15px;
     text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    margin:30px 0;
+    box-shadow:0 8px 20px rgba(37,211,102,0.4);
+}
+
+/* FOOTER NOTE */
+.note{
+    font-size:14px;
+    color:#777;
+    text-align:center;
+    margin-bottom:30px;
 }
 </style>
 </head>
@@ -54,36 +107,101 @@ h1{
 <body>
 
 <header>
- <a href="index.html">← Ana Sayfa</a>
+    <a href="index.html">← Ana Sayfa</a>
 </header>
 
-<main>
- <img id="foto">
- <h1 id="ad"></h1>
- <div class="price" id="fiyat"></div>
- <div class="desc" id="aciklama"></div>
+<div class="container">
 
- <a class="btn" id="wp" target="_blank">WhatsApp’tan Sipariş Ver</a>
-</main>
+<img id="foto" class="product-img">
+
+<h1 id="ad"></h1>
+<div class="price" id="fiyat"></div>
+<p class="short-desc" id="kisa"></p>
+
+<div class="info-box">
+    <h3>Ürün Açıklaması</h3>
+    <p id="aciklama"></p>
+</div>
+
+<div class="info-box">
+    <h3>Ürün Özellikleri</h3>
+    <ul>
+        <li><strong>Kumaş:</strong> %100 kaliteli dokuma</li>
+        <li><strong>Kalıp:</strong> Rahat kesim</li>
+        <li><strong>Bedenler:</strong> S – M – L</li>
+        <li><strong>Mevsim:</strong> 4 Mevsim</li>
+    </ul>
+</div>
+
+<div class="info-box">
+    <h3>Kargo & İade</h3>
+    <ul>
+        <li>24 saat içinde kargoya verilir</li>
+        <li>Türkiye geneli gönderim</li>
+        <li>Değişim mevcuttur</li>
+    </ul>
+</div>
+
+<a class="whatsapp" id="wp" target="_blank">
+    WhatsApp’tan Sipariş Ver
+</a>
+
+<p class="note">
+✨ DilossButik – kendi hikayeni yaz ✨
+</p>
+
+</div>
 
 <script>
-const data={
- el1:{ad:'Siyah Uzun Elbise',fiyat:'1.450₺',foto:'elbise1.jpg',aciklama:'Özel günler için zarif ve iddialı tasarım.'},
- el2:{ad:'Şık Günlük Elbise',fiyat:'1.250₺',foto:'elbise2.jpg',aciklama:'Rahat ve şık kombinler için ideal.'},
- et1:{ad:'Zarif Etek',fiyat:'850₺',foto:'etek1.jpg',aciklama:'Yumuşak dokusu ile gün boyu konfor.'},
- ka1:{ad:'Yumuşak Kazak',fiyat:'950₺',foto:'kazak1.jpg',aciklama:'Soğuk günler için şık seçim.'},
- tr1:{ad:'Şık Trençkot',fiyat:'2.450₺',foto:'trenckot1.jpg',aciklama:'Zamansız klasik trençkot.'}
+const urunler={
+el1:{
+ad:"Şık Günlük Elbise",
+foto:"elise2.jpg",
+fiyat:"1.250₺",
+kisa:"Rahat ve şık kombinler için ideal.",
+aciklama:"Günlük kullanımda hem rahatlığı hem de zarafeti bir arada sunan bu elbise, özel dokusu sayesinde gün boyu konfor sağlar. Şık tasarımıyla ister gündüz ister akşam kombinlerinde rahatlıkla tercih edilebilir."
+},
+el2:{
+ad:"Siyah Uzun Elbise",
+foto:"elise1.jpg",
+fiyat:"1.450₺",
+kisa:"Zamansız şıklık.",
+aciklama:"Minimal ve asil duruşuyla öne çıkan bu model, özel günler ve davetler için mükemmel bir tercihtir."
+},
+etek1:{
+ad:"Zarif Etek",
+foto:"etek1.jpg",
+fiyat:"950₺",
+kisa:"Günlük ve klasik kombinler için.",
+aciklama:"Hafif dokusu ve modern kesimiyle her stile uyum sağlar."
+},
+kazak1:{
+ad:"Yumuşak Kazak",
+foto:"kazak1.jpg",
+fiyat:"850₺",
+kisa:"Soğuk günlerin favorisi.",
+aciklama:"Yumuşacık dokusu sayesinde sıcak tutar ve şıklığı tamamlar."
+},
+trenckot1:{
+ad:"Şık Trençkot",
+foto:"trenckot1.jpg",
+fiyat:"2.200₺",
+kisa:"Klasik ve modern çizgi.",
+aciklama:"Mevsim geçişlerinde kurtarıcı parça."
+}
 };
 
-const id=new URLSearchParams(location.search).get('u');
-const u=data[id];
+const p=new URLSearchParams(location.search).get("u");
+const u=urunler[p];
 
-document.getElementById('foto').src=u.foto;
-document.getElementById('ad').innerText=u.ad;
-document.getElementById('fiyat').innerText=u.fiyat;
-document.getElementById('aciklama').innerText=u.aciklama;
-document.getElementById('wp').href=
-`https://wa.me/905077466171?text=${encodeURIComponent(u.ad+' sipariş vermek istiyorum')}`;
+document.getElementById("foto").src=u.foto;
+document.getElementById("ad").innerText=u.ad;
+document.getElementById("fiyat").innerText=u.fiyat;
+document.getElementById("kisa").innerText=u.kisa;
+document.getElementById("aciklama").innerText=u.aciklama;
+
+document.getElementById("wp").href=
+`https://wa.me/905077466171?text=${encodeURIComponent(u.ad+" sipariş vermek istiyorum")}`;
 </script>
 
 </body>
