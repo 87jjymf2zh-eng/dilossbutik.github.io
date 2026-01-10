@@ -2,93 +2,124 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<title>Diloss Butik | Kadın Giyim</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diloss Butik</title>
 
 <style>
+:root{
+  --bg:#fdf7f4;
+  --soft:#f2d7d9;
+  --accent:#c89fa3;
+  --text:#2f2f2f;
+}
+
 body{
-    margin:0;
-    font-family: 'Helvetica Neue', sans-serif;
-    background:#faf7f5;
-    color:#333;
+  margin:0;
+  font-family: 'Arial', sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
+
 header{
-    text-align:center;
-    padding:30px 15px;
-    background:linear-gradient(180deg,#f6e7e5,#fff);
+  background:linear-gradient(180deg,#f2d7d9,#fdf7f4);
+  text-align:center;
+  padding:50px 20px 30px;
 }
+
 header img{
-    width:90px;
-    border-radius:50%;
+  max-width:140px;
+  margin-bottom:15px;
 }
+
 header h1{
-    margin:10px 0 5px;
-    font-size:28px;
+  font-size:42px;
+  margin:0;
+  letter-spacing:1px;
 }
+
 header p{
-    color:#777;
+  color:#777;
 }
 
 nav{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    padding:15px;
-    background:#fff;
-    position:sticky;
-    top:0;
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  padding:15px;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
-nav button{
-    background:none;
-    border:none;
-    font-size:16px;
-    cursor:pointer;
-    color:#888;
+
+nav a{
+  text-decoration:none;
+  color:#555;
+  font-weight:600;
 }
-nav button.active{
-    color:#c89b9b;
-    font-weight:bold;
+
+nav a:hover{
+  color:var(--accent);
+}
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
 }
 
 .products{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-    gap:20px;
-    padding:25px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
 }
+
 .card{
-    background:#fff;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.06);
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  transition:0.3s;
 }
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
 .card img{
-    width:100%;
-    height:240px;
-    object-fit:cover;
+  width:100%;
+  height:340px;
+  object-fit:cover;
 }
-.card div{
-    padding:15px;
+
+.card-content{
+  padding:18px;
 }
-.card h3{
-    margin:0;
-    font-size:16px;
+
+.card-content h3{
+  margin:0;
+  font-size:18px;
 }
-.card span{
-    display:block;
-    margin:6px 0;
-    font-weight:bold;
-    color:#c89b9b;
+
+.price{
+  margin-top:8px;
+  font-size:18px;
+  color:var(--accent);
+  font-weight:bold;
 }
-.card a{
-    display:block;
-    text-align:center;
-    background:#c89b9b;
-    color:#fff;
-    padding:10px;
-    border-radius:10px;
-    text-decoration:none;
-    margin-top:8px;
+
+.old{
+  text-decoration:line-through;
+  font-size:14px;
+  color:#999;
+  margin-left:6px;
+}
+
+footer{
+  background:#f2d7d9;
+  text-align:center;
+  padding:25px;
+  font-size:14px;
 }
 </style>
 </head>
@@ -96,47 +127,82 @@ nav button.active{
 <body>
 
 <header>
-    <img src="logo.jpg">
-    <h1>Diloss Butik</h1>
-    <p>✨ kendi hikayenizi yazmaya hazır mısınız?</p>
+  <img src="logo.jpg">
+  <h1>DilossButik</h1>
+  <p>✨ kendi hikayenizi yazmaya hazır mısınız?</p>
 </header>
 
 <nav>
-    <button class="active" onclick="filtre('elbiseler',this)">Elbiseler</button>
-    <button onclick="filtre('etekler',this)">Etekler</button>
-    <button onclick="filtre('kazaklar',this)">Kazaklar</button>
-    <button onclick="filtre('trenckot',this)">Trençkot</button>
+  <a href="#elbiseler">Elbiseler</a>
+  <a href="#etekler">Etekler</a>
+  <a href="#kazaklar">Kazaklar</a>
+  <a href="#trenckot">Trençkot</a>
+  <a href="#kaban">Kaban</a>
 </nav>
 
-<section class="products" id="urunler"></section>
+<section id="elbiseler">
+<h2>Elbiseler</h2>
+<div class="products">
+<a href="product.html?urun=elbise1" class="card">
+<img src="elbise1.jpg">
+<div class="card-content">
+<h3>Şık Günlük Elbise</h3>
+<div class="price">1.250₺ <span class="old">1.450₺</span></div>
+</div>
+</a>
 
-<script>
-const urunler=[
- {id:'el1',kat:'elbiseler',ad:'Siyah Uzun Elbise',fiyat:'1.450₺',foto:'elbise1.jpg'},
- {id:'el2',kat:'elbiseler',ad:'Şık Günlük Elbise',fiyat:'1.250₺',foto:'elbise2.jpg'},
- {id:'et1',kat:'etekler',ad:'Zarif Etek',fiyat:'850₺',foto:'etek1.jpg'},
- {id:'ka1',kat:'kazaklar',ad:'Yumuşak Kazak',fiyat:'950₺',foto:'kazak1.jpg'},
- {id:'tr1',kat:'trenckot',ad:'Şık Trençkot',fiyat:'2.450₺',foto:'trenckot1.jpg'}
-];
+<a href="product.html?urun=elbise2" class="card">
+<img src="elbise2.jpg">
+<div class="card-content">
+<h3>Siyah Uzun Elbise</h3>
+<div class="price">1.450₺</div>
+</div>
+</a>
+</div>
+</section>
 
-function filtre(kat,btn){
- document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
- btn.classList.add('active');
+<section id="etekler">
+<h2>Etekler</h2>
+<div class="products">
+<a href="product.html?urun=etek1" class="card">
+<img src="etek1.jpg">
+<div class="card-content">
+<h3>Zarif Etek</h3>
+<div class="price">750₺</div>
+</div>
+</a>
+</div>
+</section>
 
- document.getElementById('urunler').innerHTML=
- urunler.filter(u=>u.kat==kat).map(u=>`
-  <div class="card">
-    <img src="${u.foto}">
-    <div>
-      <h3>${u.ad}</h3>
-      <span>${u.fiyat}</span>
-      <a href="product.html?u=${u.id}">Ürünü İncele</a>
-    </div>
-  </div>
- `).join('');
-}
-filtre('elbiseler',document.querySelector('nav button'));
-</script>
+<section id="kazaklar">
+<h2>Kazaklar</h2>
+<div class="products">
+<a href="product.html?urun=kazak1" class="card">
+<img src="kazak1.jpg">
+<div class="card-content">
+<h3>Yumuşak Kazak</h3>
+<div class="price">890₺</div>
+</div>
+</a>
+</div>
+</section>
+
+<section id="trenckot">
+<h2>Trençkot</h2>
+<div class="products">
+<a href="product.html?urun=trenckot1" class="card">
+<img src="trenckot1.jpg">
+<div class="card-content">
+<h3>Şık Trençkot</h3>
+<div class="price">2.350₺</div>
+</div>
+</a>
+</div>
+</section>
+
+<footer>
+© 2026 DilossButik
+</footer>
 
 </body>
 </html>
