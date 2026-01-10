@@ -5,8 +5,7 @@
 <title>DilossButik | Kadın Giyim</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Font -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins&display=swap" rel="stylesheet">
 
 <style>
 body{
@@ -18,7 +17,7 @@ color:#333;
 
 header{
 text-align:center;
-padding:60px 20px;
+padding:50px 20px;
 background:linear-gradient(180deg,#f2d7d9,#fdf7f4);
 }
 
@@ -29,112 +28,76 @@ margin-bottom:15px;
 
 header h1{
 font-family:'Playfair Display',serif;
-font-size:40px;
+font-size:42px;
 margin:0;
 }
 
 header p{
-margin-top:8px;
-font-size:16px;
-opacity:.9;
+font-size:17px;
+opacity:.8;
 }
 
-/* NAV */
 nav{
+display:flex;
+justify-content:center;
+gap:20px;
+background:#fff;
+padding:15px;
 position:sticky;
 top:0;
-background:#fff;
-padding:14px;
-text-align:center;
-box-shadow:0 3px 10px rgba(0,0,0,.05);
 z-index:10;
 }
 
 nav button{
 background:none;
 border:none;
-font-size:14px;
-font-weight:500;
-margin:0 12px;
+font-size:16px;
 cursor:pointer;
-color:#333;
+font-weight:600;
 }
 
-nav button.active,
-nav button:hover{
-color:#c48b91;
-}
-
-/* SECTIONS */
 section{
-max-width:1100px;
+max-width:1200px;
 margin:auto;
-padding:50px 20px;
+padding:40px 20px;
 }
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:25px;
 }
 
 .product{
 background:#fff;
-padding:16px;
-border-radius:16px;
+border-radius:18px;
+overflow:hidden;
+text-decoration:none;
+color:#333;
 box-shadow:0 8px 20px rgba(0,0,0,.06);
-text-align:center;
 transition:.3s;
 }
 
 .product:hover{
-transform:translateY(-6px);
+transform:translateY(-5px);
 }
 
 .product img{
 width:100%;
-border-radius:12px;
-}
-
-.product h3{
-margin-top:12px;
-font-weight:500;
-}
-
-/* HIDE */
-.category{
-display:none;
-}
-
-.category.active{
 display:block;
 }
 
-/* FOOTER */
+.product h3{
+padding:15px;
+margin:0;
+text-align:center;
+}
+
 footer{
 text-align:center;
-padding:25px;
+padding:30px;
 background:#f2d7d9;
-font-size:14px;
-}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:18px;
-right:18px;
-background:#25D366;
-color:#fff;
-padding:14px 18px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-header h1{font-size:32px;}
-nav button{margin:0 8px;}
+margin-top:50px;
 }
 </style>
 </head>
@@ -148,66 +111,54 @@ nav button{margin:0 8px;}
 </header>
 
 <nav>
-<button class="active" onclick="showCategory('elbise')">Elbiseler</button>
-<button onclick="showCategory('etek')">Etekler</button>
-<button onclick="showCategory('kazak')">Kazaklar</button>
-<button onclick="showCategory('trenc')">Trençkot</button>
-<button onclick="showCategory('kaban')">Kaban</button>
+<button onclick="filter('all')">Tümü</button>
+<button onclick="filter('elbise')">Elbiseler</button>
+<button onclick="filter('etek')">Etekler</button>
+<button onclick="filter('kazak')">Kazaklar</button>
+<button onclick="filter('trenc')">Trençkot</button>
+<button onclick="filter('kaban')">Kaban</button>
 </nav>
 
 <section>
-
-<!-- ELBİSE -->
-<div id="elbise" class="category active">
 <div class="products">
-<div class="product"><img src="elbise1.jpg"><h3>Elbise</h3></div>
-<div class="product"><img src="elbise2.jpg"><h3>Elbise</h3></div>
-</div>
-</div>
 
-<!-- ETEK -->
-<div id="etek" class="category">
-<div class="products">
-<div class="product"><img src="etek1.jpg"><h3>Etek</h3></div>
-</div>
-</div>
+<a href="product.html?urun=elbise1" class="product elbise">
+<img src="elbise1.jpg">
+<h3>Siyah Uzun Elbise</h3>
+</a>
 
-<!-- KAZAK -->
-<div id="kazak" class="category">
-<div class="products">
-<div class="product"><img src="kazak1.jpg"><h3>Kazak</h3></div>
-</div>
-</div>
+<a href="product.html?urun=elbise2" class="product elbise">
+<img src="elbise2.jpg">
+<h3>Şık Günlük Elbise</h3>
+</a>
 
-<!-- TRENÇKOT -->
-<div id="trenc" class="category">
-<div class="products">
-<div class="product"><img src="trençkot1.jpg"><h3>Trençkot</h3></div>
-</div>
-</div>
+<a href="product.html?urun=etek1" class="product etek">
+<img src="etek1.jpg">
+<h3>Zarif Etek</h3>
+</a>
 
-<!-- KABAN -->
-<div id="kaban" class="category">
-<div class="products">
-<div class="product"><img src="kaban1.jpg"><h3>Kaban</h3></div>
-</div>
-</div>
+<a href="product.html?urun=kazak1" class="product kazak">
+<img src="kazak1.jpg">
+<h3>Yumuşak Kazak</h3>
+</a>
 
+<a href="product.html?urun=trenckot1" class="product trenc">
+<img src="trenckot1.jpg">
+<h3>Şık Trençkot</h3>
+</a>
+
+</div>
 </section>
 
 <footer>
 © 2026 DilossButik
 </footer>
 
-<a class="whatsapp" href="https://wa.me/905077466171" target="_blank">WhatsApp</a>
-
 <script>
-function showCategory(cat){
-document.querySelectorAll('.category').forEach(c=>c.classList.remove('active'));
-document.getElementById(cat).classList.add('active');
-
-document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-event.target.classList.add('active');
+function filter(cat){
+document.querySelectorAll('.product').forEach(p=>{
+p.style.display = (cat==='all'||p.classList.contains(cat))?'block':'none';
+});
 }
 </script>
 
