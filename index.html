@@ -5,30 +5,21 @@
     <title>DilossButik | Kadın Giyim</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Lüks Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #fdf7f4;
             color: #333;
         }
 
-        /* HEADER */
         header {
-            background: linear-gradient(180deg, #f2d7d9, #fdf7f4);
+            background: linear-gradient(180deg, #f2d7d9, #f8ecec);
             padding: 60px 20px 50px;
             text-align: center;
         }
 
         header h1 {
-            font-family: 'Playfair Display', serif;
             font-size: 42px;
             margin: 10px 0 5px;
             letter-spacing: 1px;
@@ -36,46 +27,39 @@
 
         header p {
             font-size: 17px;
-            color: #555;
+            opacity: 0.9;
         }
 
-        /* NAV */
         nav {
             background-color: #fff;
             padding: 14px;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            z-index: 10;
         }
 
         nav a {
-            margin: 0 15px;
+            margin: 0 18px;
             text-decoration: none;
             color: #333;
-            font-weight: 500;
-            font-size: 15px;
-        }
-
-        nav a:hover {
-            color: #c48b91;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         section {
-            padding: 50px 20px;
+            padding: 60px 20px;
             max-width: 1100px;
             margin: auto;
         }
 
         section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            text-align: center;
+            font-size: 30px;
             margin-bottom: 35px;
+            text-align: center;
         }
 
-        /* PRODUCTS */
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -84,41 +68,30 @@
 
         .product {
             background: #fff;
+            border-radius: 14px;
             padding: 18px;
-            border-radius: 16px;
             text-align: center;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.1);
         }
 
         .product img {
             width: 100%;
             border-radius: 12px;
+            margin-bottom: 12px;
         }
 
         .product h3 {
-            margin-top: 15px;
-            font-weight: 500;
+            font-size: 18px;
+            margin: 0;
+            letter-spacing: 0.5px;
         }
 
-        /* BUTTON */
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 28px;
-            background-color: #c48b91;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 40px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        /* FOOTER */
         footer {
             background-color: #f2d7d9;
             text-align: center;
@@ -126,44 +99,15 @@
             font-size: 14px;
         }
 
-        /* WHATSAPP */
-        .whatsapp {
-            position: fixed;
-            bottom: 18px;
-            right: 18px;
-            background: #25D366;
-            color: white;
-            padding: 14px 18px;
-            border-radius: 50px;
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 26px;
+            background-color: #f2a1a8;
+            color: #fff;
             text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-            z-index: 200;
-        }
-
-        /* MOBILE */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 34px;
-            }
-
-            nav a {
-                margin: 0 10px;
-                font-size: 14px;
-            }
-
-            section h2 {
-                font-size: 26px;
-            }
-
-            .products {
-                grid-template-columns: 1fr;
-            }
-
-            .whatsapp {
-                padding: 12px 16px;
-                font-size: 14px;
-            }
+            border-radius: 30px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -171,7 +115,7 @@
 <body>
 
 <header>
-    <img src="logo.jpg" alt="Diloss Butik Logo" style="max-width:140px; display:block; margin:0 auto 18px;">
+    <img src="logo.jpg" alt="Diloss Butik Logo" style="max-width:150px; display:block; margin:0 auto 15px;">
     <h1>DilossButik</h1>
     <p>✨ kendi hikayenizi yazmaya hazır mısınız?</p>
 </header>
@@ -184,26 +128,31 @@
 
 <section id="urunler">
     <h2>Ürün Kategorileri</h2>
+
     <div class="products">
         <div class="product">
-            <img src="https://via.placeholder.com/300x400" alt="Elbise">
+            <img src="elbise1.jpg" alt="Elbise">
             <h3>Elbise</h3>
         </div>
+
         <div class="product">
-            <img src="https://via.placeholder.com/300x400" alt="Etek">
+            <img src="elbise2.jpg" alt="Elbise">
+            <h3>Elbise</h3>
+        </div>
+
+        <div class="product">
+            <img src="etek1.jpg" alt="Etek">
             <h3>Etek</h3>
         </div>
+
         <div class="product">
-            <img src="https://via.placeholder.com/300x400" alt="Kazak">
+            <img src="kazak1.jpg" alt="Kazak">
             <h3>Kazak</h3>
         </div>
+
         <div class="product">
-            <img src="https://via.placeholder.com/300x400" alt="Trençkot">
+            <img src="trençkot1.jpg" alt="Trençkot">
             <h3>Trençkot</h3>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/300x400" alt="Kaban">
-            <h3>Kaban</h3>
         </div>
     </div>
 </section>
@@ -211,24 +160,11 @@
 <section id="hakkimizda">
     <h2>Hakkımızda</h2>
     <p style="text-align:center; max-width:700px; margin:auto;">
-        DilossButik, kadınların tarzını ve özgünlüğünü yansıtabilmesi için
-        özenle seçilmiş parçalar sunar. Kalite, şıklık ve ulaşılabilir
-        modayı bir araya getiriyoruz.
+        DilossButik, modern ve şık kadınlar için özenle seçilmiş koleksiyonlar sunar.
+        Zamansız tasarımlar, kaliteli dokular ve sade bir lüks anlayışıyla
+        tarzınızı tamamlamayı amaçlar.
     </p>
 </section>
 
 <section id="iletisim" style="text-align:center;">
-    <h2>İletişim</h2>
-    <a class="btn" href="https://wa.me/905077466171" target="_blank">WhatsApp’tan Yaz</a>
-    <br><br>
-    <a class="btn" href="https://instagram.com/_dilossbutikk_" target="_blank">Instagram</a>
-</section>
-
-<footer>
-    © 2026 DilossButik
-</footer>
-
-<a href="https://wa.me/905077466171" class="whatsapp" target="_blank">WhatsApp</a>
-
-</body>
-</html>
+    <h2>İletişim</h2
