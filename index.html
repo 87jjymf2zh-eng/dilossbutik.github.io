@@ -2,102 +2,93 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>DilossButik | Kadın Giyim</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins&display=swap" rel="stylesheet">
+<title>Diloss Butik</title>
 
 <style>
 body{
-margin:0;
-font-family:'Poppins',sans-serif;
-background:#fdf7f4;
-color:#333;
+    margin:0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background:#faf7f5;
+    color:#333;
 }
-
 header{
-text-align:center;
-padding:50px 20px;
-background:linear-gradient(180deg,#f2d7d9,#fdf7f4);
+    text-align:center;
+    padding:30px 15px;
+    background:linear-gradient(180deg,#f6e7e5,#fff);
 }
-
 header img{
-max-width:140px;
-margin-bottom:15px;
+    width:90px;
+    border-radius:50%;
 }
-
 header h1{
-font-family:'Playfair Display',serif;
-font-size:42px;
-margin:0;
+    margin:10px 0 5px;
+    font-size:28px;
 }
-
 header p{
-font-size:17px;
-opacity:.8;
+    color:#777;
 }
 
 nav{
-display:flex;
-justify-content:center;
-gap:20px;
-background:#fff;
-padding:15px;
-position:sticky;
-top:0;
-z-index:10;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:15px;
+    background:#fff;
+    position:sticky;
+    top:0;
 }
-
 nav button{
-background:none;
-border:none;
-font-size:16px;
-cursor:pointer;
-font-weight:600;
+    background:none;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+    color:#888;
 }
-
-section{
-max-width:1200px;
-margin:auto;
-padding:40px 20px;
+nav button.active{
+    color:#c89b9b;
+    font-weight:bold;
 }
 
 .products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+    gap:20px;
+    padding:25px;
 }
-
-.product{
-background:#fff;
-border-radius:18px;
-overflow:hidden;
-text-decoration:none;
-color:#333;
-box-shadow:0 8px 20px rgba(0,0,0,.06);
-transition:.3s;
+.card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.06);
 }
-
-.product:hover{
-transform:translateY(-5px);
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
 }
-
-.product img{
-width:100%;
-display:block;
+.card div{
+    padding:15px;
 }
-
-.product h3{
-padding:15px;
-margin:0;
-text-align:center;
+.card h3{
+    margin:0;
+    font-size:16px;
 }
-
-footer{
-text-align:center;
-padding:30px;
-background:#f2d7d9;
-margin-top:50px;
+.card span{
+    display:block;
+    margin:6px 0;
+    font-weight:bold;
+    color:#c89b9b;
+}
+.card a{
+    display:block;
+    text-align:center;
+    background:#c89b9b;
+    color:#fff;
+    padding:10px;
+    border-radius:10px;
+    text-decoration:none;
+    margin-top:8px;
 }
 </style>
 </head>
@@ -105,61 +96,46 @@ margin-top:50px;
 <body>
 
 <header>
-<img src="logo.jpg" alt="Diloss Butik">
-<h1>DilossButik</h1>
-<p>✨ kendi hikayenizi yazmaya hazır mısınız?</p>
+    <img src="logo.jpg">
+    <h1>Diloss Butik</h1>
+    <p>✨ kendi hikayenizi yazmaya hazır mısınız?</p>
 </header>
 
 <nav>
-<button onclick="filter('all')">Tümü</button>
-<button onclick="filter('elbise')">Elbiseler</button>
-<button onclick="filter('etek')">Etekler</button>
-<button onclick="filter('kazak')">Kazaklar</button>
-<button onclick="filter('trenc')">Trençkot</button>
-<button onclick="filter('kaban')">Kaban</button>
+    <button class="active" onclick="filtre('elbiseler',this)">Elbiseler</button>
+    <button onclick="filtre('etekler',this)">Etekler</button>
+    <button onclick="filtre('kazaklar',this)">Kazaklar</button>
+    <button onclick="filtre('trenckot',this)">Trençkot</button>
 </nav>
 
-<section>
-<div class="products">
-
-<a href="product.html?urun=elbise1" class="product elbise">
-<img src="elbise1.jpg">
-<h3>Siyah Uzun Elbise</h3>
-</a>
-
-<a href="product.html?urun=elbise2" class="product elbise">
-<img src="elbise2.jpg">
-<h3>Şık Günlük Elbise</h3>
-</a>
-
-<a href="product.html?urun=etek1" class="product etek">
-<img src="etek1.jpg">
-<h3>Zarif Etek</h3>
-</a>
-
-<a href="product.html?urun=kazak1" class="product kazak">
-<img src="kazak1.jpg">
-<h3>Yumuşak Kazak</h3>
-</a>
-
-<a href="product.html?urun=trenckot1" class="product trenc">
-<img src="trenckot1.jpg">
-<h3>Şık Trençkot</h3>
-</a>
-
-</div>
-</section>
-
-<footer>
-© 2026 DilossButik
-</footer>
+<section class="products" id="urunler"></section>
 
 <script>
-function filter(cat){
-document.querySelectorAll('.product').forEach(p=>{
-p.style.display = (cat==='all'||p.classList.contains(cat))?'block':'none';
-});
+const urunler=[
+ {id:'el1',kat:'elbiseler',ad:'Siyah Uzun Elbise',fiyat:'1.450₺',foto:'elbise1.jpg'},
+ {id:'el2',kat:'elbiseler',ad:'Şık Günlük Elbise',fiyat:'1.250₺',foto:'elbise2.jpg'},
+ {id:'et1',kat:'etekler',ad:'Zarif Etek',fiyat:'850₺',foto:'etek1.jpg'},
+ {id:'ka1',kat:'kazaklar',ad:'Yumuşak Kazak',fiyat:'950₺',foto:'kazak1.jpg'},
+ {id:'tr1',kat:'trenckot',ad:'Şık Trençkot',fiyat:'2.450₺',foto:'trenckot1.jpg'}
+];
+
+function filtre(kat,btn){
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+
+ document.getElementById('urunler').innerHTML=
+ urunler.filter(u=>u.kat==kat).map(u=>`
+  <div class="card">
+    <img src="${u.foto}">
+    <div>
+      <h3>${u.ad}</h3>
+      <span>${u.fiyat}</span>
+      <a href="product.html?u=${u.id}">Ürünü İncele</a>
+    </div>
+  </div>
+ `).join('');
 }
+filtre('elbiseler',document.querySelector('nav button'));
 </script>
 
 </body>
