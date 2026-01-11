@@ -1,136 +1,25 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
-}
-
-body{
-  background:#faf8f6;
-  color:#111;
-}
-
-/* HEADER */
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:16px;
-  background:#faf8f6;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-
-.header i{
-  font-size:20px;
-  cursor:pointer;
-}
-
-.logo{
-  text-align:center;
-  font-weight:600;
-  letter-spacing:2px;
-}
-
-.logo span{
-  display:block;
-  font-size:11px;
-  color:#aaa;
-  letter-spacing:1px;
-}
-
-/* SEARCH */
-.search-box{
+/* OVERLAY */
+#overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.4);
   display:none;
-  padding:10px;
+  z-index:9;
 }
 
-.search-box input{
-  width:100%;
-  padding:10px;
-  border:1px solid #ddd;
-}
-
-/* CATEGORIES */
-.categories{
-  display:flex;
-  justify-content:space-around;
-  padding:14px 0;
-  font-size:14px;
-}
-
-.categories span{
-  cursor:pointer;
-}
-
-/* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-  padding:20px;
-}
-
-.card{
-  background:#fff;
-  padding:10px;
-  border-radius:12px;
-}
-
-.card img{
-  width:100%;
-  border-radius:12px;
-}
-
-.card h3{
-  font-size:14px;
-  margin:10px 0 4px;
-}
-
-.price{
-  color:#b89b8d;
-  font-weight:600;
-}
-
-/* SIDE MENU */
-.side-menu{
+/* SOL MENÜ */
+#sideMenu{
   position:fixed;
   top:0;
   left:-100%;
-  width:70%;
+  width:75%;
   height:100%;
   background:#fff;
-  padding:40px 20px;
+  z-index:10;
+  padding:30px;
   transition:.3s;
-  z-index:20;
 }
 
-.side-menu a{
-  display:block;
-  margin-bottom:20px;
-  color:#111;
-  text-decoration:none;
-}
-
-/* BOTTOM NAV */
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  background:#fff;
-  display:flex;
-  justify-content:space-around;
-  padding:10px 0;
-  border-top:1px solid #eee;
-}
-
-.bottom-nav div{
-  text-align:center;
-  font-size:12px;
-}
-
-.bottom-nav span{
-  display:block;
-  font-size:10px;
+#sideMenu.open{
+  left:0;
 }
