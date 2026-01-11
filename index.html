@@ -8,280 +8,212 @@
 <style>
 :root{
   --bg:#f6f2ec;
-  --card:#ffffff;
+  --card:#fff;
   --text:#111;
   --muted:#9c8f84;
-  --accent:#111;
 }
-
-*{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont;}
+*{box-sizing:border-box;font-family:-apple-system;}
 body{margin:0;background:var(--bg);color:var(--text);}
 
 /* HEADER */
 header{
   position:sticky;top:0;z-index:10;
   background:var(--bg);
-  padding:14px 16px 6px;
+  padding:14px 16px;
   border-bottom:1px solid #e5dfd7;
 }
-.header-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+.header{
+  display:flex;align-items:center;justify-content:space-between;
 }
 .logo{text-align:center;flex:1;}
-.logo h1{
-  margin:0;
-  letter-spacing:3px;
-  font-size:21px;
-}
-.logo span{
-  font-size:11px;
-  color:var(--muted);
-}
+.logo h1{margin:0;letter-spacing:3px;font-size:21px;}
+.logo span{font-size:11px;color:var(--muted);}
 
-/* ICONS */
-.icon{
-  font-size:22px;
-  cursor:pointer;
-  width:32px;
-}
-
-/* CATEGORY BAR */
+/* CATEGORIES */
 .categories{
-  display:flex;
-  gap:14px;
-  overflow-x:auto;
-  padding:14px 0 8px;
+  display:flex;gap:14px;overflow-x:auto;margin-top:14px;
 }
 .categories button{
-  background:none;
-  border:1px solid transparent;
-  font-size:14px;
-  padding:6px 14px;
-  cursor:pointer;
-  color:var(--muted);
+  background:none;border:none;font-size:14px;
+  color:var(--muted);cursor:pointer;
 }
 .categories button.active{
-  background:var(--accent);
-  color:#fff;
-  border-radius:20px;
+  color:#fff;background:#111;
+  padding:6px 14px;border-radius:20px;
 }
-
-/* SIDE MENU */
-.side-menu{
-  position:fixed;
-  top:0;left:-260px;
-  width:260px;height:100%;
-  background:#fff;
-  padding:20px;
-  transition:.3s;
-  z-index:20;
-}
-.side-menu.open{left:0;}
-.side-menu h3{margin-top:0;}
-.side-menu a{
-  display:block;
-  margin:14px 0;
-  text-decoration:none;
-  color:#111;
-  font-size:16px;
-}
-
-/* OVERLAY */
-.overlay{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.35);
-  z-index:15;
-}
-.overlay.show{display:block;}
 
 /* PRODUCTS */
 .products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-  padding:18px;
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:18px;padding:18px;
 }
 .product{
-  background:var(--card);
-  border-radius:20px;
-  padding:12px;
-  cursor:pointer;
+  background:var(--card);border-radius:18px;
+  padding:12px;cursor:pointer;
 }
 .product img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  border-radius:14px;
+  width:100%;height:260px;
+  object-fit:cover;border-radius:14px;
 }
-.product h3{
-  margin:10px 0 2px;
-  font-size:14px;
-  font-weight:500;
+.product h3{font-size:14px;margin:10px 0 2px;}
+.product p{margin:0;color:var(--muted);}
+
+/* MODAL */
+.modal{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.4);
+  align-items:center;justify-content:center;
+  z-index:30;
 }
-.product p{
-  margin:0;
-  color:var(--muted);
-  font-size:14px;
+.modal-content{
+  background:#fff;width:90%;max-width:400px;
+  border-radius:20px;padding:16px;
+}
+.modal img{
+  width:100%;border-radius:14px;
+}
+.modal h2{margin:12px 0 4px;}
+.modal .price{color:#111;font-weight:600;}
+.modal p{font-size:14px;color:#555;}
+.modal button{
+  width:100%;padding:14px;
+  background:#111;color:#fff;
+  border:none;border-radius:14px;
+  font-size:15px;margin-top:14px;
 }
 
-/* BOTTOM BAR */
+/* WHATSAPP FLOAT */
+.whatsapp{
+  position:fixed;right:16px;bottom:90px;
+  background:#25D366;color:#fff;
+  width:56px;height:56px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;z-index:20;
+  text-decoration:none;
+}
+
+/* BOTTOM */
 .bottom{
-  position:fixed;
-  bottom:0;left:0;right:0;
-  background:#fff;
-  border-top:1px solid #e5dfd7;
-  display:flex;
-  justify-content:space-around;
+  position:fixed;bottom:0;left:0;right:0;
+  background:#fff;border-top:1px solid #e5dfd7;
+  display:flex;justify-content:space-around;
   padding:10px 0;
 }
-.bottom div{
-  text-align:center;
-  font-size:12px;
-  cursor:pointer;
-  color:var(--muted);
-}
-.bottom .active{
-  color:var(--text);
-  font-weight:600;
-}
+.bottom div{text-align:center;font-size:12px;color:var(--muted);}
+.bottom .active{color:#111;font-weight:600;}
 
-.spacer{height:90px;}
+.space{height:90px;}
 </style>
 </head>
 
 <body>
 
-<!-- SIDE MENU -->
-<div class="side-menu" id="menu">
-  <h3>DILOSS</h3>
-  <a onclick="filterCategory('all')">Tümü</a>
-  <a onclick="filterCategory('elbiseler')">Elbiseler</a>
-  <a onclick="filterCategory('etekler')">Etekler</a>
-  <a onclick="filterCategory('kazaklar')">Kazaklar</a>
-  <a onclick="filterCategory('trenckot')">Trençkot</a>
-</div>
-
-<div class="overlay" id="overlay"></div>
-
-<!-- HEADER -->
 <header>
-  <div class="header-row">
-    <div class="icon" id="menuBtn">☰</div>
-
+  <div class="header">
+    <div>☰</div>
     <div class="logo">
       <h1>DILOSS</h1>
       <span>kendi hikayeni giy</span>
     </div>
-
-    <div class="icon" onclick="search()">🔍</div>
+    <div>🔍</div>
   </div>
 
   <div class="categories">
-    <button class="active" onclick="filterCategory('all',this)">Tümü</button>
-    <button onclick="filterCategory('elbiseler',this)">Elbiseler</button>
-    <button onclick="filterCategory('etekler',this)">Etekler</button>
-    <button onclick="filterCategory('kazaklar',this)">Kazaklar</button>
-    <button onclick="filterCategory('trenckot',this)">Trençkot</button>
+    <button class="active" onclick="filter('all',this)">Tümü</button>
+    <button onclick="filter('elbiseler',this)">Elbiseler</button>
+    <button onclick="filter('etekler',this)">Etekler</button>
   </div>
 </header>
 
-<!-- PRODUCTS -->
-<section class="products" id="products">
+<section class="products">
 
   <div class="product" data-cat="elbiseler"
-    onclick="whatsapp('Siyah Uzun Elbise')">
-    <img src="images/el1.jpg" onerror="fallback(this)">
+    onclick="openProduct(
+      'Siyah Uzun Elbise',
+      '1.450₺',
+      'Zarif ve modern kesim.',
+      'images/el1.jpg'
+    )">
+    <img src="images/el1.jpg">
     <h3>Siyah Uzun Elbise</h3>
     <p>1.450₺</p>
   </div>
 
-  <div class="product" data-cat="elbiseler"
-    onclick="whatsapp('Şık Günlük Elbise')">
-    <img src="images/el2.jpg" onerror="fallback(this)">
-    <h3>Şık Günlük Elbise</h3>
-    <p>1.250₺</p>
-  </div>
-
   <div class="product" data-cat="etekler"
-    onclick="whatsapp('Zarif Etek')">
-    <img src="images/etek1.jpg" onerror="fallback(this)">
+    onclick="openProduct(
+      'Zarif Etek',
+      '850₺',
+      'Günlük ve şık kullanım.',
+      'images/etek1.jpg'
+    )">
+    <img src="images/etek1.jpg">
     <h3>Zarif Etek</h3>
     <p>850₺</p>
   </div>
 
-  <div class="product" data-cat="etekler"
-    onclick="whatsapp('Piliseli Etek')">
-    <img src="images/etek2.jpg" onerror="fallback(this)">
-    <h3>Piliseli Etek</h3>
-    <p>920₺</p>
-  </div>
-
 </section>
 
-<div class="spacer"></div>
+<div class="space"></div>
 
-<!-- BOTTOM BAR -->
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <img id="mImg">
+    <h2 id="mTitle"></h2>
+    <div class="price" id="mPrice"></div>
+    <p id="mDesc"></p>
+    <button onclick="sendWhatsApp()">WhatsApp’tan Sor</button>
+  </div>
+</div>
+
+<!-- FLOAT WHATSAPP -->
+<a class="whatsapp"
+ href="https://wa.me/905XXXXXXXXX"
+ target="_blank">💬</a>
+
+<!-- BOTTOM -->
 <div class="bottom">
-  <div class="active" onclick="goHome()">🏠<br>Anasayfa</div>
-  <div onclick="goProducts()">👜<br>Ürünler</div>
-  <div onclick="alert('Favoriler')">🤍<br>Favoriler</div>
-  <div onclick="alert('Hesabım')">👤<br>Hesabım</div>
+  <div class="active">🏠<br>Anasayfa</div>
+  <div>👜<br>Ürünler</div>
+  <div>🤍<br>Favoriler</div>
+  <div>👤<br>Hesabım</div>
 </div>
 
 <script>
-const PHONE = "905XXXXXXXXX"; // ← BURAYA WHATSAPP NUMARANI YAZ
+let currentProduct="";
 
-/* MENU */
-const menu = document.getElementById('menu');
-const overlay = document.getElementById('overlay');
-document.getElementById('menuBtn').onclick = ()=>{
-  menu.classList.toggle('open');
-  overlay.classList.toggle('show');
+function openProduct(title,price,desc,img){
+  currentProduct=title;
+  mTitle.innerText=title;
+  mPrice.innerText=price;
+  mDesc.innerText=desc;
+  mImg.src=img;
+  modal.style.display="flex";
 }
-overlay.onclick = ()=>{
-  menu.classList.remove('open');
-  overlay.classList.remove('show');
+modal.onclick=e=>{
+  if(e.target.id==="modal") modal.style.display="none";
 }
 
-/* FILTER */
-function filterCategory(cat,btn){
+function sendWhatsApp(){
+  const msg=encodeURIComponent(
+    `Merhaba, ${currentProduct} ürünü hakkında bilgi almak istiyorum.`
+  );
+  window.open(
+    `https://wa.me/905XXXXXXXXX?text=${msg}`,
+    "_blank"
+  );
+}
+
+function filter(cat,btn){
   document.querySelectorAll('.categories button')
     .forEach(b=>b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-
+  btn.classList.add('active');
   document.querySelectorAll('.product').forEach(p=>{
-    p.style.display =
-      (cat==='all'||p.dataset.cat===cat) ? 'block':'none';
+    p.style.display=
+      (cat==="all"||p.dataset.cat===cat)?"block":"none";
   });
-
-  menu.classList.remove('open');
-  overlay.classList.remove('show');
 }
-
-/* FALLBACK */
-function fallback(img){
-  img.src="https://via.placeholder.com/400x500?text=DILOSS";
-}
-
-/* WHATSAPP */
-function whatsapp(product){
-  const msg = encodeURIComponent(
-    `Merhaba, ${product} ürünü hakkında bilgi almak istiyorum.`
-  );
-  window.open(`https://wa.me/${PHONE}?text=${msg}`,'_blank');
-}
-
-/* BOTTOM */
-function goHome(){window.scrollTo({top:0,behavior:'smooth'});}
-function goProducts(){
-  document.getElementById('products')
-    .scrollIntoView({behavior:'smooth'});
-}
-function search(){alert("Arama yakında");}
 </script>
 
 </body>
