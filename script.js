@@ -1,21 +1,31 @@
+// SOL MENÜ AÇ / KAPA
 function toggleMenu(){
-  const menu=document.getElementById("sideMenu");
-  menu.style.left = menu.style.left==="0px" ? "-100%" : "0px";
+  const menu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
+
+  if(menu.classList.contains("open")){
+    menu.classList.remove("open");
+    overlay.style.display = "none";
+  } else {
+    menu.classList.add("open");
+    overlay.style.display = "block";
+  }
 }
 
-function toggleSearch(){
-  const s=document.getElementById("searchBox");
-  s.style.display = s.style.display==="block" ? "none" : "block";
+// MENÜ DIŞINA TIKLAYINCA KAPANMASI
+function closeMenu(){
+  document.getElementById("sideMenu").classList.remove("open");
+  document.getElementById("overlay").style.display = "none";
 }
 
+// KATEGORİ FİLTRELEME
 function showCat(cat){
-  const cards=document.querySelectorAll(".card");
-  cards.forEach(c=>{
-    c.style.display = (cat==="all" || c.classList.contains(cat))
-    ? "block"
-    : "none";
+  document.querySelectorAll(".card").forEach(c=>{
+    c.style.display =
+      cat==="all" || c.classList.contains(cat)
+      ? "block"
+      : "none";
   });
 }
 
-/* açılışta hepsi görünsün */
 showCat("all");
