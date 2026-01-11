@@ -2,48 +2,74 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Ürün Detayı | Diloss Butik</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ürün Detayı | Diloss Butik</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
-<div class="logo"><a href="index.html">DILOSS BUTIK</a></div>
+  <div class="topbar">
+    <div class="menu-icon">☰</div>
+
+    <div class="brand">
+      <h1>DILOSS</h1>
+      <div class="slogan">kendi hikayeni giy</div>
+    </div>
+
+    <div class="search-icon">🔍</div>
+  </div>
 </header>
 
-<section>
-<div class="detail">
-<img id="foto">
-<div>
-<h1 id="ad"></h1>
-<div class="price" id="fiyat"></div>
-<p>
-Zamansız tasarım, kaliteli kumaş ve modern kesim.
-</p>
-<a class="btn" href="https://wa.me/905077466171">WhatsApp ile Sipariş</a>
-</div>
-</div>
+<!-- PRODUCT DETAIL -->
+<section class="detail">
 
-<div style="margin-top:80px;">
-<h3>Ürün Bilgisi</h3>
-<p>Kumaş: Triko<br>Kalıp: Rahat<br>Üretim: Türkiye</p>
-</div>
+  <!-- PRODUCT IMAGE -->
+  <img src="kazak1.jpg" alt="Ürün Görseli">
+
+  <!-- PRODUCT INFO -->
+  <h1>Yumuşak Dokulu Triko Kazak</h1>
+  <div class="price">990₺</div>
+
+  <p>
+    Günlük şıklığı ve konforu bir araya getiren bu triko kazak,
+    yumuşak dokusu ve zamansız tasarımıyla gardırobunuzun
+    vazgeçilmezi olacak.
+  </p>
+
+  <!-- DETAILS -->
+  <p>
+    • Rahat kesim<br>
+    • Esnek kumaş<br>
+    • Dört mevsim kullanım<br>
+    • Türkiye üretim
+  </p>
+
+  <!-- SIZE -->
+  <p>
+    <strong>Beden:</strong><br>
+    S / M / L
+  </p>
+
+  <!-- WHATSAPP -->
+  <a class="btn" href="https://wa.me/905077466171" target="_blank">
+    WhatsApp’tan Satın Al
+  </a>
+
 </section>
 
-<footer>© 2026 Diloss Butik</footer>
+<footer></footer>
 
-<script>
-const urunler={
-kazak1:{ad:"Yumuşak Dokulu Kazak",fiyat:"₺1.499",foto:"kazak1.jpg"}
-}
-const u=new URLSearchParams(location.search).get("urun");
-if(urunler[u]){
-ad.innerText=urunler[u].ad;
-fiyat.innerText=urunler[u].fiyat;
-foto.src=urunler[u].foto;
-}
-</script>
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <div onclick="location.href='index.html'">🏠<br>Anasayfa</div>
+  <div onclick="location.href='index.html#elbiseler'">🛍️<br>Ürünler</div>
+  <div>🤍<br>Favoriler</div>
+  <div>👤<br>Hesabım</div>
+</div>
 
 </body>
 </html>
