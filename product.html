@@ -2,136 +2,46 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Ürün Detayı | DilossButik</title>
+<title>Ürün Detayı | Diloss Butik</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body{
-    margin:0;
-    font-family:"Helvetica Neue",Arial,sans-serif;
-    background:#f7f5f2;
-    color:#111;
-}
-a{text-decoration:none;color:inherit}
-
-/* HEADER */
-header{
-    background:#fff;
-    padding:20px 40px;
-    border-bottom:1px solid #e5e5e5;
-}
-.logo{font-size:20px;font-weight:600}
-
-/* PRODUCT */
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:60px 20px;
-}
-.product-box{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-}
-.product-box img{
-    width:100%;
-}
-h1{
-    font-size:28px;
-    font-weight:400;
-}
-.price{
-    font-size:20px;
-    margin:20px 0;
-}
-.desc{
-    color:#555;
-    line-height:1.7;
-}
-.btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:14px 30px;
-    background:#111;
-    color:#fff;
-    font-size:14px;
-}
-
-/* DETAILS */
-.details{
-    margin-top:80px;
-    border-top:1px solid #ddd;
-    padding-top:40px;
-}
-.details h3{
-    font-size:18px;
-    font-weight:400;
-    margin-bottom:15px;
-}
-.details p{
-    color:#555;
-    line-height:1.7;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .product-box{
-        grid-template-columns:1fr;
-    }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-    <a href="index.html" class="logo">DILOSS BUTIK</a>
+<div class="logo"><a href="index.html">DILOSS BUTIK</a></div>
 </header>
 
-<div class="container">
-    <div class="product-box">
-        <img id="urunFoto" src="">
-        <div>
-            <h1 id="urunAd"></h1>
-            <div class="price" id="urunFiyat"></div>
-            <p class="desc">
-                Zamansız tasarım, modern dokunuş. Günlük ve şık kombinler için ideal.
-            </p>
-            <a class="btn" href="https://wa.me/905077466171" target="_blank">
-                WhatsApp ile Sipariş Ver
-            </a>
-        </div>
-    </div>
-
-    <div class="details">
-        <h3>Ürün Detayları</h3>
-        <p>Kumaş: Yumuşak dokulu triko<br>
-        Kalıp: Rahat kesim<br>
-        Üretim: Türkiye</p>
-    </div>
+<section>
+<div class="detail">
+<img id="foto">
+<div>
+<h1 id="ad"></h1>
+<div class="price" id="fiyat"></div>
+<p>
+Zamansız tasarım, kaliteli kumaş ve modern kesim.
+</p>
+<a class="btn" href="https://wa.me/905077466171">WhatsApp ile Sipariş</a>
 </div>
+</div>
+
+<div style="margin-top:80px;">
+<h3>Ürün Bilgisi</h3>
+<p>Kumaş: Triko<br>Kalıp: Rahat<br>Üretim: Türkiye</p>
+</div>
+</section>
+
+<footer>© 2026 Diloss Butik</footer>
 
 <script>
 const urunler={
-    kazak1:{
-        ad:"Yumuşak Dokulu Kazak",
-        fiyat:"₺1.299",
-        foto:"kazak1.jpg"
-    },
-    kazak2:{
-        ad:"Oversize Kazak",
-        fiyat:"₺1.499",
-        foto:"kazak2.jpg"
-    }
-};
-
-const params=new URLSearchParams(window.location.search);
-const urun=params.get("urun");
-
-if(urunler[urun]){
-    document.getElementById("urunAd").innerText=urunler[urun].ad;
-    document.getElementById("urunFiyat").innerText=urunler[urun].fiyat;
-    document.getElementById("urunFoto").src=urunler[urun].foto;
+kazak1:{ad:"Yumuşak Dokulu Kazak",fiyat:"₺1.499",foto:"kazak1.jpg"}
+}
+const u=new URLSearchParams(location.search).get("urun");
+if(urunler[u]){
+ad.innerText=urunler[u].ad;
+fiyat.innerText=urunler[u].fiyat;
+foto.src=urunler[u].foto;
 }
 </script>
 
