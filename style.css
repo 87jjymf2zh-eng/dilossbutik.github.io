@@ -1,128 +1,177 @@
-*{box-sizing:border-box}
-body{
-    margin:0;
-    font-family:"Helvetica Neue",Arial,sans-serif;
-    background:#f6f4f1;
-    color:#111;
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-a{text-decoration:none;color:inherit}
+
+body{
+  font-family:"Helvetica Neue", Arial, sans-serif;
+  background:#faf7f4;
+  color:#111;
+}
 
 /* HEADER */
 header{
-    background:#fff;
-    border-bottom:1px solid #e5e5e5;
-    padding:20px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-.logo{
-    letter-spacing:2px;
-    font-weight:500;
-}
-.menu{
-    display:flex;
-    gap:25px;
-    font-size:14px;
+  position:sticky;
+  top:0;
+  background:#faf7f4;
+  z-index:100;
+  border-bottom:1px solid #eee;
 }
 
-/* HERO */
-.hero{
-    padding:100px 20px;
-    text-align:center;
-    background:#f1ece6;
-}
-.hero h1{
-    font-size:38px;
-    font-weight:400;
-}
-.hero p{
-    color:#555;
-    margin-top:15px;
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 16px;
 }
 
-/* SECTIONS */
-section{
-    max-width:1200px;
-    margin:auto;
-    padding:80px 20px;
-}
-section h2{
-    text-align:center;
-    font-weight:400;
-    margin-bottom:50px;
+.menu-icon,
+.search-icon{
+  font-size:20px;
+  cursor:pointer;
 }
 
-/* PRODUCTS */
+.brand{
+  text-align:center;
+}
+
+.brand h1{
+  font-size:20px;
+  font-weight:500;
+  letter-spacing:2px;
+}
+
+.slogan{
+  font-size:10px;
+  color:#b5aaa0;
+  letter-spacing:1px;
+  margin-top:2px;
+}
+
+/* CATEGORY BAR */
+.categories{
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+  font-size:13px;
+}
+
+.categories a{
+  text-decoration:none;
+  color:#111;
+  font-weight:400;
+}
+
+/* PRODUCTS GRID */
 .products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:40px;
+  padding:20px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:30px;
 }
-.product{
-    background:#fff;
-    padding:20px;
-    transition:.3s;
+
+.card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  transition:transform .2s ease;
 }
-.product:hover{
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+.card:hover{
+  transform:translateY(-4px);
 }
-.product img{
-    width:100%;
+
+.card img{
+  width:100%;
+  display:block;
 }
-.product h3{
-    font-size:15px;
-    font-weight:400;
-    margin:15px 0 5px;
+
+.card-content{
+  padding:16px;
 }
-.product p{
-    font-size:13px;
-    color:#666;
+
+.card h3{
+  font-size:16px;
+  font-weight:500;
 }
+
 .price{
-    margin-top:10px;
+  margin-top:6px;
+  color:#c2a68d;
+  font-weight:500;
+  font-size:15px;
+}
+
+.card a{
+  text-decoration:none;
+  color:inherit;
 }
 
 /* PRODUCT DETAIL */
 .detail{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
+  padding:20px;
 }
+
 .detail img{
-    width:100%;
+  width:100%;
+  border-radius:20px;
 }
+
 .detail h1{
-    font-weight:400;
+  font-size:22px;
+  font-weight:500;
+  margin-top:20px;
 }
+
+.detail .price{
+  font-size:20px;
+  margin:12px 0;
+}
+
+.detail p{
+  color:#666;
+  line-height:1.6;
+  font-size:14px;
+}
+
+/* BUTTON */
 .btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:14px 30px;
-    background:#111;
-    color:#fff;
-    font-size:14px;
+  display:inline-block;
+  margin-top:25px;
+  padding:16px;
+  width:100%;
+  text-align:center;
+  background:#25d366;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:500;
+  font-size:15px;
 }
 
-/* FOOTER */
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#fff;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+  font-size:11px;
+}
+
+.bottom-nav div{
+  text-align:center;
+  color:#111;
+}
+
+/* FOOTER SPACE */
 footer{
-    background:#111;
-    color:#fff;
-    text-align:center;
-    padding:40px;
-    font-size:13px;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .detail{grid-template-columns:1fr}
-    header{flex-direction:column;gap:15px}
-}
-.slogan{
-  display:block;
-  margin-top:2px;
-  font-size:10px;
-  color:#b5aaa0;
-  letter-spacing:1px;
-  text-transform:lowercase;
+  height:80px;
 }
