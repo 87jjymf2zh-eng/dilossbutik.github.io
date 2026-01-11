@@ -1,46 +1,220 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Diloss Butik</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diloss Butik</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+body{
+  background:#faf7f4;
+  color:#111;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  background:#faf7f4;
+  z-index:100;
+  border-bottom:1px solid #eee;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 16px;
+}
+
+.menu-icon,
+.search-icon{
+  font-size:20px;
+}
+
+.brand{
+  text-align:center;
+}
+
+.brand h1{
+  font-size:20px;
+  font-weight:500;
+  letter-spacing:2px;
+}
+
+.slogan{
+  font-size:10px;
+  color:#b5aaa0;
+  letter-spacing:1px;
+}
+
+/* CATEGORY BAR */
+.categories{
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+  font-size:13px;
+}
+
+.categories a{
+  text-decoration:none;
+  color:#111;
+}
+
+/* PRODUCTS */
+.products{
+  padding:20px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:30px;
+}
+
+.card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.04);
+}
+
+.card img{
+  width:100%;
+  display:block;
+}
+
+.card-content{
+  padding:16px;
+}
+
+.card h3{
+  font-size:16px;
+  font-weight:500;
+}
+
+.price{
+  margin-top:6px;
+  color:#c2a68d;
+  font-weight:500;
+}
+
+.card a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#fff;
+  border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+  font-size:11px;
+}
+
+.bottom-nav div{
+  text-align:center;
+}
+
+/* SPACE FOR NAV */
+footer{
+  height:70px;
+}
+</style>
 </head>
+
 <body>
 
-<header class="header">
-  <div class="logo">
-    <h1>DilossButik</h1>
-    <p>✨ Kendi hikayeni yaz ✨</p>
+<header>
+  <div class="topbar">
+    <div class="menu-icon">☰</div>
+
+    <div class="brand">
+      <h1>DILOSS</h1>
+      <div class="slogan">kendi hikayeni giy</div>
+    </div>
+
+    <div class="search-icon">🔍</div>
   </div>
-  <nav class="menu">
-    <a href="elbiseler.html">Elbiseler</a>
-    <a href="etekler.html">Etekler</a>
-    <a href="kazaklar.html">Kazaklar</a>
-  </nav>
+
+  <div class="categories">
+    <a href="#elbiseler">Elbiseler</a>
+    <a href="#etekler">Etekler</a>
+    <a href="#kazaklar">Kazaklar</a>
+    <a href="#trenckot">Trençkot</a>
+  </div>
 </header>
 
-<section class="hero">
-  <h2>Yeni Sezon Seçimleri</h2>
-  <p>Zarif, soft ve zamansız parçalar</p>
-</section>
+<main>
 
-<section class="products">
-  <a href="product.html" class="card">
-    <img src="elbiseler1.jpg">
-    <h3>Şık Günlük Elbise</h3>
-    <span>1.250₺</span>
+<section id="elbiseler" class="products">
+  <a href="product.html?urun=elbise1" class="card">
+    <img src="elbise1.jpg">
+    <div class="card-content">
+      <h3>Şık Günlük Elbise</h3>
+      <div class="price">1.250₺</div>
+    </div>
   </a>
 
-  <a href="product.html" class="card">
+  <a href="product.html?urun=elbise2" class="card">
+    <img src="elbise2.jpg">
+    <div class="card-content">
+      <h3>Siyah Uzun Elbise</h3>
+      <div class="price">1.450₺</div>
+    </div>
+  </a>
+</section>
+
+<section id="etekler" class="products">
+  <a href="product.html?urun=etek1" class="card">
+    <img src="etek1.jpg">
+    <div class="card-content">
+      <h3>Zarif Etek</h3>
+      <div class="price">850₺</div>
+    </div>
+  </a>
+</section>
+
+<section id="kazaklar" class="products">
+  <a href="product.html?urun=kazak1" class="card">
     <img src="kazak1.jpg">
-    <h3>Yumuşak Dokulu Kazak</h3>
-    <span>890₺</span>
+    <div class="card-content">
+      <h3>Yumuşak Kazak</h3>
+      <div class="price">990₺</div>
+    </div>
   </a>
 </section>
 
-<footer>
-  © 2026 Diloss Butik
-</footer>
+<section id="trenckot" class="products">
+  <a href="product.html?urun=trenckot1" class="card">
+    <img src="trenckot1.jpg">
+    <div class="card-content">
+      <h3>Şık Trençkot</h3>
+      <div class="price">2.750₺</div>
+    </div>
+  </a>
+</section>
+
+</main>
+
+<footer></footer>
+
+<div class="bottom-nav">
+  <div>🏠<br>Anasayfa</div>
+  <div>🛍️<br>Ürünler</div>
+  <div>🤍<br>Favoriler</div>
+  <div>👤<br>Hesabım</div>
+</div>
 
 </body>
 </html>
