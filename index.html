@@ -1,108 +1,99 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DILOSS</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DILOSS</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<!-- OVERLAY -->
+<div id="overlay" onclick="closeMenu()"></div>
+
+<!-- SOL MENÜ -->
+<div id="sideMenu">
+  <h3>DILOSS</h3>
+  <p>Kategoriler</p>
+  <a href="#" onclick="showCat('elbiseler');closeMenu()">Elbiseler</a><br>
+  <a href="#" onclick="showCat('etekler');closeMenu()">Etekler</a><br>
+  <a href="#" onclick="showCat('kazaklar');closeMenu()">Kazaklar</a><br>
+  <a href="#" onclick="showCat('trenckot');closeMenu()">Trençkot</a>
+</div>
+
 <!-- HEADER -->
-<header class="header">
-  <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+<header class="top">
+  <button onclick="toggleMenu()" class="menu-btn">☰</button>
 
   <div class="logo">
-    DILOSS
+    <h2>DILOSS</h2>
     <span>kendi hikayeni giy</span>
   </div>
 
-  <i class="fa-solid fa-magnifying-glass" onclick="toggleSearch()"></i>
+  <button class="search-btn">🔍</button>
 </header>
 
-<!-- SEARCH -->
-<div class="search-box" id="searchBox">
-  <input type="text" placeholder="Ürün ara...">
+<!-- KATEGORİ BAR -->
+<div class="categories">
+  <button onclick="showCat('all')">Tümü</button>
+  <button onclick="showCat('elbiseler')">Elbiseler</button>
+  <button onclick="showCat('etekler')">Etekler</button>
+  <button onclick="showCat('kazaklar')">Kazaklar</button>
+  <button onclick="showCat('trenckot')">Trençkot</button>
 </div>
 
-<!-- CATEGORY -->
-<nav class="categories">
-  <span onclick="showCat('all')">Tümü</span>
-  <span onclick="showCat('elbiseler')">Elbiseler</span>
-  <span onclick="showCat('etekler')">Etekler</span>
-  <span onclick="showCat('kazaklar')">Kazaklar</span>
-  <span onclick="showCat('trenc')">Trençkot</span>
-</nav>
+<!-- ÜRÜNLER -->
+<main class="products" id="urunler">
 
-<!-- PRODUCTS -->
-<section class="products">
-
-  <!-- ELBİSE -->
+  <!-- ELBİSELER -->
   <div class="card elbiseler">
-    <img src="elbiseler1.jpg">
-    <h3>Siyah Uzun Elbise</h3>
-    <p class="price">1.450₺</p>
+    <img src="img/siyah-elbise.jpg">
+    <h4>Siyah Uzun Elbise</h4>
+    <p>1.450₺</p>
   </div>
 
   <div class="card elbiseler">
-    <img src="elbiseler2.jpg">
-    <h3>Şık Günlük Elbise</h3>
-    <p class="price">1.250₺</p>
+    <img src="img/gunluk-elbise.jpg">
+    <h4>Şık Günlük Elbise</h4>
+    <p>1.250₺</p>
   </div>
 
-  <!-- ETEK -->
+  <!-- ETEKLER -->
   <div class="card etekler">
-    <img src="etek1.jpg">
-    <h3>Zarif Etek</h3>
-    <p class="price">850₺</p>
+    <img src="img/zarif-etek.jpg">
+    <h4>Zarif Etek</h4>
+    <p>850₺</p>
   </div>
 
   <div class="card etekler">
-    <img src="etek2.jpg">
-    <h3>Piliseli Etek</h3>
-    <p class="price">920₺</p>
+    <img src="img/piliseli-etek.jpg">
+    <h4>Piliseli Etek</h4>
+    <p>920₺</p>
   </div>
 
   <!-- KAZAK -->
   <div class="card kazaklar">
-    <img src="kazak1.jpg">
-    <h3>Yumuşak Kazak</h3>
-    <p class="price">780₺</p>
+    <img src="img/kazak.jpg">
+    <h4>Yumuşak Kazak</h4>
+    <p>1.100₺</p>
   </div>
 
-  <div class="card kazaklar">
-    <img src="kazak2.jpg">
-    <h3>Oversize Kazak</h3>
-    <p class="price">890₺</p>
+  <!-- TRENÇKOT -->
+  <div class="card trenckot">
+    <img src="img/trenckot.jpg">
+    <h4>Bej Trençkot</h4>
+    <p>2.950₺</p>
   </div>
 
-  <!-- TRENÇ -->
-  <div class="card trenc">
-    <img src="trenc1.jpg">
-    <h3>Klasik Trençkot</h3>
-    <p class="price">2.450₺</p>
-  </div>
+</main>
 
-</section>
-
-<!-- MOBILE MENU -->
-<div class="side-menu" id="sideMenu">
-  <a href="#">Anasayfa</a>
-  <a href="#">Elbiseler</a>
-  <a href="#">Etekler</a>
-  <a href="#">Kazaklar</a>
-  <a href="#">Trençkot</a>
-</div>
-
-<!-- BOTTOM NAV -->
-<footer class="bottom-nav">
-  <div>🏠<span>Anasayfa</span></div>
-  <div>👜<span>Ürünler</span></div>
-  <div>🤍<span>Favoriler</span></div>
-  <div>👤<span>Hesabım</span></div>
-</footer>
+<!-- ALT MENÜ -->
+<nav class="bottom-nav">
+  <a href="index.html">🏠<span>Anasayfa</span></a>
+  <a href="#urunler">👜<span>Ürünler</span></a>
+  <a href="#">🤍<span>Favoriler</span></a>
+  <a href="#">👤<span>Hesabım</span></a>
+</nav>
 
 <script src="script.js"></script>
 </body>
