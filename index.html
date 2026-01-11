@@ -4,289 +4,106 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DILOSS</title>
-
-<style>
-:root{
-  --bg:#f9f7f4;
-  --text:#111;
-  --soft:#888;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI";
-  background:var(--bg);
-  color:var(--text);
-}
-
-/* CAMPAIGN */
-.campaign{
-  background:#000;
-  color:#fff;
-  font-size:12px;
-  text-align:center;
-  padding:6px;
-}
-
-/* HEADER */
-header{
-  position:sticky;
-  top:0;
-  background:var(--bg);
-  z-index:20;
-  border-bottom:1px solid #e5e5e5;
-}
-.top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:12px 16px;
-}
-.icon{font-size:22px;cursor:pointer}
-.logo{text-align:center}
-.logo h1{
-  margin:0;
-  font-size:20px;
-  letter-spacing:3px;
-}
-.logo span{
-  font-size:11px;
-  color:var(--soft);
-}
-
-/* SLIDER */
-.slider{
-  position:relative;
-}
-.slider img{
-  width:100%;
-  border-radius:0 0 20px 20px;
-}
-
-/* CATEGORIES */
-.categories{
-  display:flex;
-  justify-content:space-around;
-  padding:14px 0;
-}
-.categories div{
-  font-size:14px;
-  cursor:pointer;
-  padding-bottom:4px;
-}
-.active{
-  border-bottom:2px solid #000;
-}
-
-/* PRODUCTS */
-.products{
-  padding:18px;
-}
-.card{
-  display:none;
-  margin-bottom:32px;
-}
-.card img{
-  width:100%;
-  border-radius:14px;
-}
-.card h3{
-  font-size:15px;
-  margin:10px 0 4px;
-}
-.price{
-  font-size:14px;
-  color:#555;
-}
-.actions{
-  display:flex;
-  justify-content:space-between;
-  margin-top:10px;
-}
-.actions span{
-  font-size:20px;
-  cursor:pointer;
-}
-
-/* DRAWER */
-.drawer{
-  position:fixed;
-  top:0;
-  left:-260px;
-  width:260px;
-  height:100%;
-  background:#fff;
-  padding:20px;
-  box-shadow:2px 0 20px rgba(0,0,0,.1);
-  transition:.3s;
-  z-index:30;
-}
-.drawer a{
-  display:block;
-  text-decoration:none;
-  color:#000;
-  margin:18px 0;
-}
-
-/* MODAL PRODUCT */
-.modal{
-  position:fixed;
-  inset:0;
-  background:#fff;
-  display:none;
-  flex-direction:column;
-  z-index:40;
-  overflow:auto;
-}
-.modal img{
-  width:100%;
-}
-.modal-content{
-  padding:20px;
-}
-.close{
-  font-size:22px;
-  cursor:pointer;
-  text-align:right;
-}
-
-/* BOTTOM NAV */
-.bottom{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  background:#fff;
-  border-top:1px solid #ddd;
-  display:flex;
-  justify-content:space-around;
-  padding:8px 0;
-}
-.bottom div{
-  text-align:center;
-  font-size:12px;
-  cursor:pointer;
-}
-.bottom span{
-  display:block;
-  font-size:18px;
-}
-</style>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
-<div class="campaign">%35 SEZON SONU İNDİRİM</div>
+<!-- HEADER -->
+<header class="header">
+  <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
 
-<header>
-  <div class="top">
-    <div class="icon" onclick="toggleDrawer()">☰</div>
-    <div class="logo">
-      <h1>DILOSS</h1>
-      <span>kendi hikayeni giy</span>
-    </div>
-    <div class="icon" onclick="alert('Arama yakında')">🔍</div>
+  <div class="logo">
+    DILOSS
+    <span>kendi hikayeni giy</span>
   </div>
+
+  <i class="fa-solid fa-magnifying-glass" onclick="toggleSearch()"></i>
 </header>
 
-<div class="slider">
-  <img src="banner.jpg">
+<!-- SEARCH -->
+<div class="search-box" id="searchBox">
+  <input type="text" placeholder="Ürün ara...">
 </div>
 
-<div class="categories">
-  <div onclick="showCat('elbiseler')" class="active">Elbiseler</div>
-  <div onclick="showCat('etekler')">Etekler</div>
-  <div onclick="showCat('kazaklar')">Kazaklar</div>
-  <div onclick="showCat('trenc')">Trençkot</div>
-</div>
+<!-- CATEGORY -->
+<nav class="categories">
+  <span onclick="showCat('all')">Tümü</span>
+  <span onclick="showCat('elbiseler')">Elbiseler</span>
+  <span onclick="showCat('etekler')">Etekler</span>
+  <span onclick="showCat('kazaklar')">Kazaklar</span>
+  <span onclick="showCat('trenc')">Trençkot</span>
+</nav>
 
-<div class="drawer" id="drawer">
-  <a href="#">Yeni Gelenler</a>
-  <a href="#">İndirim</a>
-  <a href="#">Hakkımızda</a>
-  <a href="#">İletişim</a>
-</div>
-
+<!-- PRODUCTS -->
 <section class="products">
 
-<div class="card elbiseler">
-  <img src="elbiseler1.jpg" onclick="openProduct(this)">
-  <h3>Siyah Şık Elbise</h3>
-  <div class="price">1.490₺</div>
-  <div class="actions">
-    <span onclick="fav(this)">🤍</span>
-    <span onclick="cart()">🛒</span>
+  <!-- ELBİSE -->
+  <div class="card elbiseler">
+    <img src="elbiseler1.jpg">
+    <h3>Siyah Uzun Elbise</h3>
+    <p class="price">1.450₺</p>
   </div>
-</div>
 
-<div class="card etekler">
-  <img src="etek1.jpg" onclick="openProduct(this)">
-  <h3>Saten Midi Etek</h3>
-  <div class="price">890₺</div>
-  <div class="actions">
-    <span onclick="fav(this)">🤍</span>
-    <span onclick="cart()">🛒</span>
+  <div class="card elbiseler">
+    <img src="elbiseler2.jpg">
+    <h3>Şık Günlük Elbise</h3>
+    <p class="price">1.250₺</p>
   </div>
-</div>
+
+  <!-- ETEK -->
+  <div class="card etekler">
+    <img src="etek1.jpg">
+    <h3>Zarif Etek</h3>
+    <p class="price">850₺</p>
+  </div>
+
+  <div class="card etekler">
+    <img src="etek2.jpg">
+    <h3>Piliseli Etek</h3>
+    <p class="price">920₺</p>
+  </div>
+
+  <!-- KAZAK -->
+  <div class="card kazaklar">
+    <img src="kazak1.jpg">
+    <h3>Yumuşak Kazak</h3>
+    <p class="price">780₺</p>
+  </div>
+
+  <div class="card kazaklar">
+    <img src="kazak2.jpg">
+    <h3>Oversize Kazak</h3>
+    <p class="price">890₺</p>
+  </div>
+
+  <!-- TRENÇ -->
+  <div class="card trenc">
+    <img src="trenc1.jpg">
+    <h3>Klasik Trençkot</h3>
+    <p class="price">2.450₺</p>
+  </div>
 
 </section>
 
-<!-- PRODUCT MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <div class="close" onclick="closeProduct()">✕</div>
-    <img id="modalImg">
-    <h2>Ürün Detayı</h2>
-    <p>Minimal kesim, premium kumaş.</p>
-    <p><b>Beden:</b> S / M / L</p>
-    <button onclick="alert('WhatsApp sipariş')">WhatsApp’tan Sipariş</button>
-  </div>
+<!-- MOBILE MENU -->
+<div class="side-menu" id="sideMenu">
+  <a href="#">Anasayfa</a>
+  <a href="#">Elbiseler</a>
+  <a href="#">Etekler</a>
+  <a href="#">Kazaklar</a>
+  <a href="#">Trençkot</a>
 </div>
 
-<div class="bottom">
-  <div onclick="scrollTopPage()"><span>🏠</span>Anasayfa</div>
-  <div onclick="showCat('elbiseler')"><span>🛍️</span>Ürünler</div>
-  <div onclick="alert('Favoriler')"><span>🤍</span>Favoriler</div>
-  <div onclick="alert('Hesabım')"><span>👤</span>Hesabım</div>
-</div>
+<!-- BOTTOM NAV -->
+<footer class="bottom-nav">
+  <div>🏠<span>Anasayfa</span></div>
+  <div>👜<span>Ürünler</span></div>
+  <div>🤍<span>Favoriler</span></div>
+  <div>👤<span>Hesabım</span></div>
+</footer>
 
-<script>
-let drawer=false;
-
-function toggleDrawer(){
-  drawer=!drawer;
-  document.getElementById("drawer").style.left = drawer?"0":"-260px";
-}
-
-function showCat(cat){
-  document.querySelectorAll('.card').forEach(c=>c.style.display='none');
-  document.querySelectorAll('.'+cat).forEach(c=>c.style.display='block');
-  document.querySelectorAll('.categories div').forEach(d=>d.classList.remove('active'));
-  event.target.classList.add('active');
-}
-
-function openProduct(img){
-  document.getElementById("modalImg").src=img.src;
-  document.getElementById("modal").style.display="flex";
-}
-
-function closeProduct(){
-  document.getElementById("modal").style.display="none";
-}
-
-function fav(el){
-  el.textContent = el.textContent==="🤍"?"❤️":"🤍";
-}
-
-function cart(){
-  alert("Sepete eklendi");
-}
-
-function scrollTopPage(){
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-showCat("elbiseler");
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
