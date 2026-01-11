@@ -55,9 +55,6 @@ header{
 }
 
 /* SLIDER */
-.slider{
-  position:relative;
-}
 .slider img{
   width:100%;
   border-radius:0 0 20px 20px;
@@ -74,7 +71,7 @@ header{
   cursor:pointer;
   padding-bottom:4px;
 }
-.active{
+.categories .active{
   border-bottom:2px solid #000;
 }
 
@@ -121,6 +118,9 @@ header{
   transition:.3s;
   z-index:30;
 }
+.drawer.open{
+  left:0;
+}
 .drawer a{
   display:block;
   text-decoration:none;
@@ -128,7 +128,16 @@ header{
   margin:18px 0;
 }
 
-/* MODAL PRODUCT */
+/* OVERLAY */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.3);
+  display:none;
+  z-index:25;
+}
+
+/* MODAL */
 .modal{
   position:fixed;
   inset:0;
@@ -138,12 +147,8 @@ header{
   z-index:40;
   overflow:auto;
 }
-.modal img{
-  width:100%;
-}
-.modal-content{
-  padding:20px;
-}
+.modal img{width:100%}
+.modal-content{padding:20px}
 .close{
   font-size:22px;
   cursor:pointer;
@@ -193,18 +198,21 @@ header{
 </div>
 
 <div class="categories">
-  <div onclick="showCat('elbiseler')" class="active">Elbiseler</div>
-  <div onclick="showCat('etekler')">Etekler</div>
-  <div onclick="showCat('kazaklar')">Kazaklar</div>
-  <div onclick="showCat('trenc')">Trençkot</div>
+  <div onclick="showCat('elbiseler',this)" class="active">Elbiseler</div>
+  <div onclick="showCat('etekler',this)">Etekler</div>
+  <div onclick="showCat('kazaklar',this)">Kazaklar</div>
+  <div onclick="showCat('trenc',this)">Trençkot</div>
 </div>
 
+<!-- DRAWER -->
 <div class="drawer" id="drawer">
-  <a href="#">Yeni Gelenler</a>
-  <a href="#">İndirim</a>
-  <a href="#">Hakkımızda</a>
-  <a href="#">İletişim</a>
+  <a href="#" onclick="closeDrawer()">Yeni Gelenler</a>
+  <a href="#" onclick="closeDrawer()">İndirim</a>
+  <a href="#" onclick="closeDrawer()">Hakkımızda</a>
+  <a href="#" onclick="closeDrawer()">İletişim</a>
 </div>
+
+<div class="overlay" id="overlay" onclick="closeDrawer()"></div>
 
 <section class="products">
 
@@ -230,7 +238,7 @@ header{
 
 </section>
 
-<!-- PRODUCT MODAL -->
+<!-- MODAL -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <div class="close" onclick="closeProduct()">✕</div>
@@ -244,24 +252,30 @@ header{
 
 <div class="bottom">
   <div onclick="scrollTopPage()"><span>🏠</span>Anasayfa</div>
-  <div onclick="showCat('elbiseler')"><span>🛍️</span>Ürünler</div>
+  <div onclick="showCat('elbiseler',document.querySelector('.categories div'))"><span>🛍️</span>Ürünler</div>
   <div onclick="alert('Favoriler')"><span>🤍</span>Favoriler</div>
   <div onclick="alert('Hesabım')"><span>👤</span>Hesabım</div>
 </div>
 
 <script>
-let drawer=false;
+const drawerEl = document.getElementById("drawer");
+const overlayEl = document.getElementById("overlay");
 
 function toggleDrawer(){
-  drawer=!drawer;
-  document.getElementById("drawer").style.left = drawer?"0":"-260px";
+  drawerEl.classList.toggle("open");
+  overlayEl.style.display = drawerEl.classList.contains("open") ? "block" : "none";
 }
 
-function showCat(cat){
+function closeDrawer(){
+  drawerEl.classList.remove("open");
+  overlayEl.style.display = "none";
+}
+
+function showCat(cat,el){
   document.querySelectorAll('.card').forEach(c=>c.style.display='none');
   document.querySelectorAll('.'+cat).forEach(c=>c.style.display='block');
   document.querySelectorAll('.categories div').forEach(d=>d.classList.remove('active'));
-  event.target.classList.add('active');
+  if(el) el.classList.add('active');
 }
 
 function openProduct(img){
@@ -285,7 +299,7 @@ function scrollTopPage(){
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
-showCat("elbiseler");
+showCat("elbiseler",document.querySelector(".categories div"));
 </script>
 
 </body>
