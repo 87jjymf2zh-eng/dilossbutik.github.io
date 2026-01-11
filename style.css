@@ -118,3 +118,11 @@ footer{
     .detail{grid-template-columns:1fr}
     header{flex-direction:column;gap:15px}
 }
+.slogan{
+  display:block;
+  margin-top:2px;
+  font-size:10px;
+  color:#b5aaa0;
+  letter-spacing:1px;
+  text-transform:lowercase;
+}
