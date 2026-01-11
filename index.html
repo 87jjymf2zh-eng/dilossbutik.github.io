@@ -2,124 +2,91 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Diloss Butik | Kadın Giyim</title>
+<title>DilossButik | Kadın Giyim</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root{
-  --bg:#fdf7f4;
-  --soft:#f2d7d9;
-  --accent:#c89fa3;
-  --text:#2f2f2f;
-}
-
 body{
-  margin:0;
-  font-family: 'Arial', sans-serif;
-  background:var(--bg);
-  color:var(--text);
+    margin:0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background:#f7f5f2;
+    color:#111;
 }
+a{text-decoration:none;color:inherit}
 
+/* HEADER */
 header{
-  background:linear-gradient(180deg,#f2d7d9,#fdf7f4);
-  text-align:center;
-  padding:50px 20px 30px;
+    background:#fff;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #e5e5e5;
 }
-
-header img{
-  max-width:140px;
-  margin-bottom:15px;
+.logo{
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:1px;
 }
-
-header h1{
-  font-size:42px;
-  margin:0;
-  letter-spacing:1px;
-}
-
-header p{
-  color:#777;
-}
-
-nav{
-  background:#fff;
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  padding:15px;
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-
 nav a{
-  text-decoration:none;
-  color:#555;
-  font-weight:600;
+    margin-left:25px;
+    font-size:14px;
 }
 
-nav a:hover{
-  color:var(--accent);
+/* HERO */
+.hero{
+    padding:80px 20px;
+    text-align:center;
+}
+.hero h1{
+    font-size:34px;
+    font-weight:400;
+}
+.hero p{
+    color:#666;
+    margin-top:15px;
 }
 
+/* PRODUCTS */
 section{
-  max-width:1100px;
-  margin:auto;
-  padding:40px 20px;
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
 }
-
 .products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:40px;
+}
+.product{
+    background:#fff;
+    padding:20px;
+    transition:0.3s;
+}
+.product:hover{
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+.product img{
+    width:100%;
+}
+.product h3{
+    font-size:15px;
+    font-weight:400;
+    margin:15px 0 5px;
+}
+.product span{
+    font-size:14px;
+    color:#444;
 }
 
-.card{
-  background:#fff;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-}
-
-.card img{
-  width:100%;
-  height:340px;
-  object-fit:cover;
-}
-
-.card-content{
-  padding:18px;
-}
-
-.card-content h3{
-  margin:0;
-  font-size:18px;
-}
-
-.price{
-  margin-top:8px;
-  font-size:18px;
-  color:var(--accent);
-  font-weight:bold;
-}
-
-.old{
-  text-decoration:line-through;
-  font-size:14px;
-  color:#999;
-  margin-left:6px;
-}
-
+/* FOOTER */
 footer{
-  background:#f2d7d9;
-  text-align:center;
-  padding:25px;
-  font-size:14px;
+    background:#111;
+    color:#fff;
+    text-align:center;
+    padding:30px;
+    margin-top:80px;
+    font-size:13px;
 }
 </style>
 </head>
@@ -127,77 +94,34 @@ footer{
 <body>
 
 <header>
-  <img src="logo.jpg">
-  <h1>DilossButik</h1>
-  <p>✨ kendi hikayenizi yazmaya hazır mısınız?</p>
+    <div class="logo">DILOSS BUTIK</div>
+    <nav>
+        <a href="#elbiseler">Elbise</a>
+        <a href="#etekler">Etek</a>
+        <a href="#kazaklar">Kazak</a>
+        <a href="#kabanlar">Kaban</a>
+    </nav>
 </header>
 
-<nav>
-  <a href="#elbiseler">Elbiseler</a>
-  <a href="#etekler">Etekler</a>
-  <a href="#kazaklar">Kazaklar</a>
-  <a href="#trenckot">Trençkot</a>
-  <a href="#kaban">Kaban</a>
-</nav>
-
-<section id="elbiseler">
-<h2>Elbiseler</h2>
-<div class="products">
-<a href="product.html?urun=elbise1" class="card">
-<img src="elbise1.jpg">
-<div class="card-content">
-<h3>Şık Günlük Elbise</h3>
-<div class="price">1.250₺ <span class="old">1.450₺</span></div>
+<div class="hero">
+    <h1>Zamansız Şıklık</h1>
+    <p>Kendi stilini yeniden keşfet</p>
 </div>
-</a>
-
-<a href="product.html?urun=elbise2" class="card">
-<img src="elbise2.jpg">
-<div class="card-content">
-<h3>Siyah Uzun Elbise</h3>
-<div class="price">1.450₺</div>
-</div>
-</a>
-</div>
-</section>
-
-<section id="etekler">
-<h2>Etekler</h2>
-<div class="products">
-<a href="product.html?urun=etek1" class="card">
-<img src="etek1.jpg">
-<div class="card-content">
-<h3>Zarif Etek</h3>
-<div class="price">750₺</div>
-</div>
-</a>
-</div>
-</section>
 
 <section id="kazaklar">
-<h2>Kazaklar</h2>
-<div class="products">
-<a href="product.html?urun=kazak1" class="card">
-<img src="kazak1.jpg">
-<div class="card-content">
-<h3>Yumuşak Kazak</h3>
-<div class="price">890₺</div>
-</div>
-</a>
-</div>
-</section>
+    <div class="products">
+        <a href="product.html?urun=kazak1" class="product">
+            <img src="kazak1.jpg">
+            <h3>Yumuşak Dokulu Kazak</h3>
+            <span>₺1.299</span>
+        </a>
 
-<section id="trenckot">
-<h2>Trençkot</h2>
-<div class="products">
-<a href="product.html?urun=trenckot1" class="card">
-<img src="trenckot1.jpg">
-<div class="card-content">
-<h3>Şık Trençkot</h3>
-<div class="price">2.350₺</div>
-</div>
-</a>
-</div>
+        <a href="product.html?urun=kazak2" class="product">
+            <img src="kazak2.jpg">
+            <h3>Oversize Kazak</h3>
+            <span>₺1.499</span>
+        </a>
+    </div>
 </section>
 
 <footer>
