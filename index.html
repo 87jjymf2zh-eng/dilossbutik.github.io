@@ -1,220 +1,65 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DILOSS</title>
-
-<style>
-:root{
-  --bg:#f6f2ec;
-  --card:#fff;
-  --text:#111;
-  --muted:#9c8f84;
-}
-*{box-sizing:border-box;font-family:-apple-system;}
-body{margin:0;background:var(--bg);color:var(--text);}
-
-/* HEADER */
-header{
-  position:sticky;top:0;z-index:10;
-  background:var(--bg);
-  padding:14px 16px;
-  border-bottom:1px solid #e5dfd7;
-}
-.header{
-  display:flex;align-items:center;justify-content:space-between;
-}
-.logo{text-align:center;flex:1;}
-.logo h1{margin:0;letter-spacing:3px;font-size:21px;}
-.logo span{font-size:11px;color:var(--muted);}
-
-/* CATEGORIES */
-.categories{
-  display:flex;gap:14px;overflow-x:auto;margin-top:14px;
-}
-.categories button{
-  background:none;border:none;font-size:14px;
-  color:var(--muted);cursor:pointer;
-}
-.categories button.active{
-  color:#fff;background:#111;
-  padding:6px 14px;border-radius:20px;
-}
-
-/* PRODUCTS */
-.products{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:18px;padding:18px;
-}
-.product{
-  background:var(--card);border-radius:18px;
-  padding:12px;cursor:pointer;
-}
-.product img{
-  width:100%;height:260px;
-  object-fit:cover;border-radius:14px;
-}
-.product h3{font-size:14px;margin:10px 0 2px;}
-.product p{margin:0;color:var(--muted);}
-
-/* MODAL */
-.modal{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,.4);
-  align-items:center;justify-content:center;
-  z-index:30;
-}
-.modal-content{
-  background:#fff;width:90%;max-width:400px;
-  border-radius:20px;padding:16px;
-}
-.modal img{
-  width:100%;border-radius:14px;
-}
-.modal h2{margin:12px 0 4px;}
-.modal .price{color:#111;font-weight:600;}
-.modal p{font-size:14px;color:#555;}
-.modal button{
-  width:100%;padding:14px;
-  background:#111;color:#fff;
-  border:none;border-radius:14px;
-  font-size:15px;margin-top:14px;
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp{
-  position:fixed;right:16px;bottom:90px;
-  background:#25D366;color:#fff;
-  width:56px;height:56px;
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:28px;z-index:20;
-  text-decoration:none;
-}
-
-/* BOTTOM */
-.bottom{
-  position:fixed;bottom:0;left:0;right:0;
-  background:#fff;border-top:1px solid #e5dfd7;
-  display:flex;justify-content:space-around;
-  padding:10px 0;
-}
-.bottom div{text-align:center;font-size:12px;color:var(--muted);}
-.bottom .active{color:#111;font-weight:600;}
-
-.space{height:90px;}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DILOSS</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-  <div class="header">
-    <div>☰</div>
-    <div class="logo">
-      <h1>DILOSS</h1>
-      <span>kendi hikayeni giy</span>
-    </div>
-    <div>🔍</div>
-  </div>
-
-  <div class="categories">
-    <button class="active" onclick="filter('all',this)">Tümü</button>
-    <button onclick="filter('elbiseler',this)">Elbiseler</button>
-    <button onclick="filter('etekler',this)">Etekler</button>
-  </div>
+<header class="header">
+  <h1>DILOSS</h1>
+  <p>kendi hikayeni giy</p>
 </header>
 
-<section class="products">
+<nav class="categories">
+  <button class="active">Tümü</button>
+  <button>Elbiseler</button>
+  <button>Etekler</button>
+  <button>Kazaklar</button>
+</nav>
 
-  <div class="product" data-cat="elbiseler"
-    onclick="openProduct(
-      'Siyah Uzun Elbise',
-      '1.450₺',
-      'Zarif ve modern kesim.',
-      'images/el1.jpg'
-    )">
-    <img src="images/el1.jpg">
+<main class="products">
+
+  <div class="product-card">
+    <img src="images/elbiseler/siyah-uzun.jpg" alt="">
     <h3>Siyah Uzun Elbise</h3>
-    <p>1.450₺</p>
+    <span>1.450₺</span>
   </div>
 
-  <div class="product" data-cat="etekler"
-    onclick="openProduct(
-      'Zarif Etek',
-      '850₺',
-      'Günlük ve şık kullanım.',
-      'images/etek1.jpg'
-    )">
-    <img src="images/etek1.jpg">
+  <div class="product-card">
+    <img src="images/elbiseler/sik-gunluk.jpg" alt="">
+    <h3>Şık Günlük Elbise</h3>
+    <span>1.250₺</span>
+  </div>
+
+  <div class="product-card">
+    <img src="images/etekler/zarif.jpg" alt="">
     <h3>Zarif Etek</h3>
-    <p>850₺</p>
+    <span>850₺</span>
   </div>
 
-</section>
-
-<div class="space"></div>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <img id="mImg">
-    <h2 id="mTitle"></h2>
-    <div class="price" id="mPrice"></div>
-    <p id="mDesc"></p>
-    <button onclick="sendWhatsApp()">WhatsApp’tan Sor</button>
+  <div class="product-card">
+    <img src="images/etekler/pliseli.jpg" alt="">
+    <h3>Piliseli Etek</h3>
+    <span>920₺</span>
   </div>
-</div>
 
-<!-- FLOAT WHATSAPP -->
-<a class="whatsapp"
- href="https://wa.me/905XXXXXXXXX"
- target="_blank">💬</a>
+  <div class="product-card">
+    <img src="images/kazaklar/krem.jpg" alt="">
+    <h3>Krem Kazak</h3>
+    <span>780₺</span>
+  </div>
 
-<!-- BOTTOM -->
-<div class="bottom">
-  <div class="active">🏠<br>Anasayfa</div>
-  <div>👜<br>Ürünler</div>
-  <div>🤍<br>Favoriler</div>
-  <div>👤<br>Hesabım</div>
-</div>
+</main>
 
-<script>
-let currentProduct="";
-
-function openProduct(title,price,desc,img){
-  currentProduct=title;
-  mTitle.innerText=title;
-  mPrice.innerText=price;
-  mDesc.innerText=desc;
-  mImg.src=img;
-  modal.style.display="flex";
-}
-modal.onclick=e=>{
-  if(e.target.id==="modal") modal.style.display="none";
-}
-
-function sendWhatsApp(){
-  const msg=encodeURIComponent(
-    `Merhaba, ${currentProduct} ürünü hakkında bilgi almak istiyorum.`
-  );
-  window.open(
-    `https://wa.me/905XXXXXXXXX?text=${msg}`,
-    "_blank"
-  );
-}
-
-function filter(cat,btn){
-  document.querySelectorAll('.categories button')
-    .forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.product').forEach(p=>{
-    p.style.display=
-      (cat==="all"||p.dataset.cat===cat)?"block":"none";
-  });
-}
-</script>
+<footer class="bottom-nav">
+  <span>🏠 Anasayfa</span>
+  <span>👜 Ürünler</span>
+  <span>🤍 Favoriler</span>
+  <span>👤 Hesabım</span>
+</footer>
 
 </body>
 </html>
