@@ -2,14 +2,14 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>DilossButik | Kadın Giyim</title>
+<title>Diloss Butik | Zamansız Kadın Giyim</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
     margin:0;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    background:#f7f5f2;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    background:#f6f4f1;
     color:#111;
 }
 a{text-decoration:none;color:inherit}
@@ -25,34 +25,44 @@ header{
 }
 .logo{
     font-size:22px;
-    font-weight:600;
-    letter-spacing:1px;
+    letter-spacing:2px;
+    font-weight:500;
 }
 nav a{
-    margin-left:25px;
+    margin-left:30px;
     font-size:14px;
 }
 
 /* HERO */
 .hero{
-    padding:80px 20px;
+    padding:100px 20px;
     text-align:center;
+    background:#f1ece6;
 }
 .hero h1{
-    font-size:34px;
+    font-size:38px;
     font-weight:400;
+    margin-bottom:20px;
 }
 .hero p{
-    color:#666;
-    margin-top:15px;
+    font-size:16px;
+    color:#555;
 }
 
-/* PRODUCTS */
+/* SECTION */
 section{
     max-width:1200px;
     margin:auto;
-    padding:40px 20px;
+    padding:80px 20px;
 }
+section h2{
+    font-size:26px;
+    font-weight:400;
+    margin-bottom:40px;
+    text-align:center;
+}
+
+/* PRODUCTS */
 .products{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -61,10 +71,10 @@ section{
 .product{
     background:#fff;
     padding:20px;
-    transition:0.3s;
+    transition:.3s;
 }
 .product:hover{
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
 }
 .product img{
     width:100%;
@@ -74,18 +84,21 @@ section{
     font-weight:400;
     margin:15px 0 5px;
 }
-.product span{
+.product p{
+    font-size:13px;
+    color:#666;
+}
+.price{
+    margin-top:10px;
     font-size:14px;
-    color:#444;
 }
 
 /* FOOTER */
 footer{
     background:#111;
     color:#fff;
+    padding:40px;
     text-align:center;
-    padding:30px;
-    margin-top:80px;
     font-size:13px;
 }
 </style>
@@ -96,36 +109,68 @@ footer{
 <header>
     <div class="logo">DILOSS BUTIK</div>
     <nav>
-        <a href="#elbiseler">Elbise</a>
-        <a href="#etekler">Etek</a>
-        <a href="#kazaklar">Kazak</a>
-        <a href="#kabanlar">Kaban</a>
+        <a href="#elbiseler">Elbiseler</a>
+        <a href="#etekler">Etekler</a>
+        <a href="#kazaklar">Kazaklar</a>
+        <a href="#kabanlar">Kabanlar</a>
     </nav>
 </header>
 
 <div class="hero">
-    <h1>Zamansız Şıklık</h1>
-    <p>Kendi stilini yeniden keşfet</p>
+    <h1>Kendi Hikâyeni Şıklıkla Yaz</h1>
+    <p>Zamansız, sade ve güçlü kadınlar için seçildi</p>
 </div>
 
-<section id="kazaklar">
-    <div class="products">
-        <a href="product.html?urun=kazak1" class="product">
-            <img src="kazak1.jpg">
-            <h3>Yumuşak Dokulu Kazak</h3>
-            <span>₺1.299</span>
-        </a>
+<section id="elbiseler">
+<h2>Elbiseler</h2>
+<div class="products">
+<a href="product.html?urun=elbise1" class="product">
+<img src="elbise1.jpg">
+<h3>Minimal Kesim Elbise</h3>
+<p>Günlük & şık kullanım</p>
+<div class="price">₺1.799</div>
+</a>
+</div>
+</section>
 
-        <a href="product.html?urun=kazak2" class="product">
-            <img src="kazak2.jpg">
-            <h3>Oversize Kazak</h3>
-            <span>₺1.499</span>
-        </a>
-    </div>
+<section id="etekler">
+<h2>Etekler</h2>
+<div class="products">
+<a href="product.html?urun=etek1" class="product">
+<img src="etek1.jpg">
+<h3>Yüksek Bel Etek</h3>
+<p>Zamansız siluet</p>
+<div class="price">₺1.299</div>
+</a>
+</div>
+</section>
+
+<section id="kazaklar">
+<h2>Kazaklar</h2>
+<div class="products">
+<a href="product.html?urun=kazak1" class="product">
+<img src="kazak1.jpg">
+<h3>Yumuşak Dokulu Kazak</h3>
+<p>Soğuk günlerin vazgeçilmezi</p>
+<div class="price">₺1.499</div>
+</a>
+</div>
+</section>
+
+<section id="kabanlar">
+<h2>Kabanlar</h2>
+<div class="products">
+<a href="product.html?urun=kaban1" class="product">
+<img src="kaban1.jpg">
+<h3>Klasik Uzun Kaban</h3>
+<p>Modern ve güçlü duruş</p>
+<div class="price">₺2.999</div>
+</a>
+</div>
 </section>
 
 <footer>
-© 2026 DilossButik
+© 2026 Diloss Butik — Zamansız Şıklık
 </footer>
 
 </body>
