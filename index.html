@@ -3,132 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diloss Butik</title>
+<title>DILOSS</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
-body{
-  background:#faf7f4;
-  color:#111;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f7f4;
 }
 
 /* HEADER */
-header{
-  position:sticky;
-  top:0;
-  background:#faf7f4;
-  z-index:100;
-  border-bottom:1px solid #eee;
+header {
+  position: sticky;
+  top: 0;
+  background: #f9f7f4;
+  z-index: 100;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 16px;
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
 }
 
-.menu-icon,
-.search-icon{
-  font-size:20px;
+.menu, .search {
+  font-size: 22px;
+  cursor: pointer;
 }
 
-.brand{
-  text-align:center;
+.logo {
+  text-align: center;
 }
 
-.brand h1{
-  font-size:20px;
-  font-weight:500;
-  letter-spacing:2px;
+.logo h1 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 2px;
 }
 
-.slogan{
-  font-size:10px;
-  color:#b5aaa0;
-  letter-spacing:1px;
+.logo span {
+  font-size: 11px;
+  color: #999;
 }
 
 /* CATEGORY BAR */
-.categories{
-  display:flex;
-  justify-content:space-around;
-  padding:10px 0;
-  font-size:13px;
+.categories {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  background: #f9f7f4;
 }
 
-.categories a{
-  text-decoration:none;
-  color:#111;
+.categories div {
+  font-size: 14px;
+  cursor: pointer;
+  padding-bottom: 5px;
 }
 
-/* PRODUCTS */
-.products{
-  padding:20px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:30px;
+.categories .active {
+  border-bottom: 2px solid #000;
 }
 
-.card{
-  background:#fff;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,0.04);
+/* PRODUCT */
+.products {
+  padding: 15px;
 }
 
-.card img{
-  width:100%;
-  display:block;
+.product {
+  display: none;
 }
 
-.card-content{
-  padding:16px;
+.product img {
+  width: 100%;
+  border-radius: 10px;
 }
 
-.card h3{
-  font-size:16px;
-  font-weight:500;
+.product h3 {
+  margin: 10px 0 5px;
+  font-size: 15px;
 }
 
-.price{
-  margin-top:6px;
-  color:#c2a68d;
-  font-weight:500;
-}
-
-.card a{
-  text-decoration:none;
-  color:inherit;
+.product p {
+  margin: 0;
+  color: #555;
+  font-size: 14px;
 }
 
 /* BOTTOM NAV */
-.bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:#fff;
-  border-top:1px solid #eee;
-  display:flex;
-  justify-content:space-around;
-  padding:10px 0;
-  font-size:11px;
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  border-top: 1px solid #e5e5e5;
 }
 
-.bottom-nav div{
-  text-align:center;
+.bottom div {
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
 }
 
-/* SPACE FOR NAV */
-footer{
-  height:70px;
+.bottom div span {
+  display: block;
+  font-size: 18px;
 }
 </style>
 </head>
@@ -136,85 +119,88 @@ footer{
 <body>
 
 <header>
-  <div class="topbar">
-    <div class="menu-icon">☰</div>
+  <div class="top">
+    <div class="menu" onclick="toggleMenu()">☰</div>
 
-    <div class="brand">
+    <div class="logo">
       <h1>DILOSS</h1>
-      <div class="slogan">kendi hikayeni giy</div>
+      <span>kendi hikayeni giy</span>
     </div>
 
-    <div class="search-icon">🔍</div>
+    <div class="search" onclick="search()">🔍</div>
   </div>
 
   <div class="categories">
-    <a href="#elbiseler">Elbiseler</a>
-    <a href="#etekler">Etekler</a>
-    <a href="#kazaklar">Kazaklar</a>
-    <a href="#trenckot">Trençkot</a>
+    <div onclick="showCategory('elbiseler')" class="active">Elbiseler</div>
+    <div onclick="showCategory('etekler')">Etekler</div>
+    <div onclick="showCategory('kazaklar')">Kazaklar</div>
+    <div onclick="showCategory('trenc')">Trençkot</div>
   </div>
 </header>
 
-<main>
+<section class="products">
 
-<section id="elbiseler" class="products">
-  <a href="product.html?urun=elbise1" class="card">
-    <img src="elbise1.jpg">
-    <div class="card-content">
-      <h3>Şık Günlük Elbise</h3>
-      <div class="price">1.250₺</div>
-    </div>
-  </a>
+  <!-- ELBİSE -->
+  <div class="product elbiseler">
+    <img src="elbiseler1.jpg">
+    <h3>Siyah Şık Elbise</h3>
+    <p>1.490₺</p>
+  </div>
 
-  <a href="product.html?urun=elbise2" class="card">
-    <img src="elbise2.jpg">
-    <div class="card-content">
-      <h3>Siyah Uzun Elbise</h3>
-      <div class="price">1.450₺</div>
-    </div>
-  </a>
-</section>
-
-<section id="etekler" class="products">
-  <a href="product.html?urun=etek1" class="card">
+  <!-- ETEK -->
+  <div class="product etekler">
     <img src="etek1.jpg">
-    <div class="card-content">
-      <h3>Zarif Etek</h3>
-      <div class="price">850₺</div>
-    </div>
-  </a>
-</section>
+    <h3>Saten Midi Etek</h3>
+    <p>890₺</p>
+  </div>
 
-<section id="kazaklar" class="products">
-  <a href="product.html?urun=kazak1" class="card">
+  <!-- KAZAK -->
+  <div class="product kazaklar">
     <img src="kazak1.jpg">
-    <div class="card-content">
-      <h3>Yumuşak Kazak</h3>
-      <div class="price">990₺</div>
-    </div>
-  </a>
+    <h3>Yumuşak Triko Kazak</h3>
+    <p>990₺</p>
+  </div>
+
+  <!-- TRENÇ -->
+  <div class="product trenc">
+    <img src="trenc1.jpg">
+    <h3>Oversize Trençkot</h3>
+    <p>2.490₺</p>
+  </div>
+
 </section>
 
-<section id="trenckot" class="products">
-  <a href="product.html?urun=trenckot1" class="card">
-    <img src="trenckot1.jpg">
-    <div class="card-content">
-      <h3>Şık Trençkot</h3>
-      <div class="price">2.750₺</div>
-    </div>
-  </a>
-</section>
-
-</main>
-
-<footer></footer>
-
-<div class="bottom-nav">
-  <div>🏠<br>Anasayfa</div>
-  <div>🛍️<br>Ürünler</div>
-  <div>🤍<br>Favoriler</div>
-  <div>👤<br>Hesabım</div>
+<div class="bottom">
+  <div onclick="scrollTopPage()"><span>🏠</span>Anasayfa</div>
+  <div onclick="showCategory('elbiseler')"><span>🛍️</span>Ürünler</div>
+  <div onclick="alert('Favoriler yakında')"><span>🤍</span>Favoriler</div>
+  <div onclick="alert('Hesabım yakında')"><span>👤</span>Hesabım</div>
 </div>
+
+<script>
+function showCategory(cat) {
+  document.querySelectorAll('.product').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.' + cat).forEach(p => p.style.display = 'block');
+
+  document.querySelectorAll('.categories div').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function toggleMenu() {
+  alert("Menü yakında aktif olacak");
+}
+
+function search() {
+  alert("Arama yakında aktif olacak");
+}
+
+function scrollTopPage() {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+/* default */
+showCategory('elbiseler');
+</script>
 
 </body>
 </html>
